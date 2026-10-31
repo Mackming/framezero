@@ -90,64 +90,184 @@ const DEMO_POSITIONS = [
   {
     name: "Scholar's Tactical Strike",
     fen: 'r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w - - 0 1',
-    afterMoveFen: 'r1bqkbnr/pppp1Qpp/2n5/4p3/2B1P3/8/PPPP1PPP/RNB1K1NR b - - 0 1',
-    bestMove: { from: 'f3', to: 'f7' },
     eval: '#M1',
     evalDesc: 'White has forced checkmate in 1 move (Qxf7#)',
     winProb: '99.9% White Win Prob',
-    evalPercent: 98,
+    evalPercent: 99,
     depth: 'Depth 24 / 910k NPS',
     speed: '910k NPS',
-    tb: 'Syzygy 7-Man',
+    tb: 'Book / Mate in 1',
     styles: {
-      best: { move: { from: 'f3', to: 'f7' }, eval: '#M1', desc: 'White has forced checkmate in 1 move (Qxf7#)', prob: '99.9% White Win Prob', uci: 'bestmove f3f7 (Qxf7# checkmate)', fill: 98 },
-      aggro: { move: { from: 'c4', to: 'f7' }, eval: '+4.80', desc: 'Bishop sacrifice destroys castling rights (Bxf7+)', prob: '94.2% White Win Prob', uci: 'bestmove c4f7 (Bxf7+ king hunt)', fill: 84 },
-      trap: { move: { from: 'g1', to: 'e2' }, eval: '+1.65', desc: 'Prepares d4 while baiting 1...Nd4 blunder', prob: '78.5% White Win Prob', uci: 'bestmove g1e2 (solid baiting line)', fill: 68 },
-      greedy: { move: { from: 'f3', to: 'f7' }, eval: '#M1', desc: 'Direct tactical queen strike wins immediately', prob: '99.9% White Win Prob', uci: 'bestmove f3f7 (material clean win)', fill: 98 },
-      chaos: { move: { from: 'd2', to: 'd3' }, eval: '+1.40', desc: 'Positional quiet move holding center tension', prob: '72.0% White Win Prob', uci: 'bestmove d2d3 (quiet development)', fill: 64 },
-      drawish: { move: { from: 'f3', to: 'e2' }, eval: '+0.10', desc: 'Flattens tactical complications into endgames', prob: '53.0% Equal Position', uci: 'bestmove f3e2 (defensive retreat)', fill: 51 }
+      best: {
+        move: { from: 'f3', to: 'f7' },
+        eval: '#M1',
+        desc: 'White has forced checkmate in 1 move (Qxf7#)',
+        prob: '99.9% White Win Prob',
+        uci: 'bestmove f3f7 (Qxf7# checkmate)',
+        fill: 99
+      },
+      aggro: {
+        move: { from: 'c4', to: 'f7' },
+        eval: '+4.80',
+        desc: 'Bishop sacrifice destroys castling rights (Bxf7+)',
+        prob: '94.2% White Win Prob',
+        uci: 'bestmove c4f7 (Bxf7+ king hunt)',
+        fill: 84
+      },
+      trap: {
+        move: { from: 'g1', to: 'e2' },
+        eval: '+1.65',
+        desc: 'Develops knight while baiting 1...Nd4 blunder',
+        prob: '78.5% White Win Prob',
+        uci: 'bestmove g1e2 (solid baiting line)',
+        fill: 68
+      },
+      greedy: {
+        move: { from: 'f3', to: 'f7' },
+        eval: '#M1',
+        desc: 'Direct tactical queen strike wins immediately',
+        prob: '99.9% White Win Prob',
+        uci: 'bestmove f3f7 (material clean win)',
+        fill: 99
+      },
+      chaos: {
+        move: { from: 'd2', to: 'd3' },
+        eval: '+1.40',
+        desc: 'Solid pawn support maintaining center tension',
+        prob: '72.0% White Win Prob',
+        uci: 'bestmove d2d3 (quiet development)',
+        fill: 64
+      },
+      drawish: {
+        move: { from: 'f3', to: 'e2' },
+        eval: '+0.10',
+        desc: 'Queen retreats to e2 avoiding early complications',
+        prob: '53.0% Equal Position',
+        uci: 'bestmove f3e2 (defensive retreat)',
+        fill: 51
+      }
     }
   },
   {
     name: 'Sicilian Dragon Tactical Clash',
     fen: 'r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPP3PP/2KR1B1R w - - 0 10',
-    afterMoveFen: 'r1bq1rk1/pp2ppbp/2np1np1/8/3NP1P1/2N1BP2/PPP4P/2KR1B1R b - - 0 10',
-    bestMove: { from: 'g2', to: 'g4' },
     eval: '+1.24',
     evalDesc: 'Yugoslav pawn assault launches sharp Kingside storm',
     winProb: '68.4% White Win Prob',
     evalPercent: 62,
     depth: 'Depth 22 / 885k NPS',
     speed: '885k NPS',
-    tb: 'Opening Book Cache',
+    tb: 'Sicilian Opening Book',
     styles: {
-      best: { move: { from: 'g2', to: 'g4' }, eval: '+1.24', desc: 'Yugoslav pawn assault launches sharp Kingside storm', prob: '68.4% White Win Prob', uci: 'bestmove g2g4 (pawn storm initiation)', fill: 62 },
-      aggro: { move: { from: 'h2', to: 'h4' }, eval: '+1.10', desc: 'Immediate h-file rook battery opening thrust', prob: '65.1% White Win Prob', uci: 'bestmove h2h4 (h-pawn sprint)', fill: 60 },
-      trap: { move: { from: 'd4', to: 'b3' }, eval: '+0.88', desc: 'Prophylactic retreat avoiding exchange on c3', prob: '61.2% White Win Prob', uci: 'bestmove d4b3 (knight tactical retreat)', fill: 57 },
-      greedy: { move: { from: 'd4', to: 'c6' }, eval: '+0.72', desc: 'Captures active knight and weakens Black b7 pawn', prob: '58.0% White Win Prob', uci: 'bestmove d4c6 (Nxc6 structure disruption)', fill: 55 },
-      chaos: { move: { from: 'f1', to: 'c4' }, eval: '+0.95', desc: 'Classical bishop development targeting weak f7', prob: '63.0% White Win Prob', uci: 'bestmove f1c4 (Bc4 direct pressure)', fill: 59 },
-      drawish: { move: { from: 'c1', to: 'b1' }, eval: '+0.30', desc: 'Prophylactic king step to safe dark square', prob: '54.5% Equalized Position', uci: 'bestmove c1b1 (Kb1 king safety)', fill: 52 }
+      best: {
+        move: { from: 'g2', to: 'g4' },
+        eval: '+1.24',
+        desc: 'Yugoslav pawn assault launches sharp Kingside storm',
+        prob: '68.4% White Win Prob',
+        uci: 'bestmove g2g4 (pawn storm initiation)',
+        fill: 62
+      },
+      aggro: {
+        move: { from: 'h2', to: 'h4' },
+        eval: '+1.10',
+        desc: 'Immediate h-file rook battery opening thrust',
+        prob: '65.1% White Win Prob',
+        uci: 'bestmove h2h4 (h-pawn sprint)',
+        fill: 60
+      },
+      trap: {
+        move: { from: 'd4', to: 'b3' },
+        eval: '+0.88',
+        desc: 'Prophylactic retreat avoiding exchange on c3',
+        prob: '61.2% White Win Prob',
+        uci: 'bestmove d4b3 (knight tactical retreat)',
+        fill: 57
+      },
+      greedy: {
+        move: { from: 'd4', to: 'c6' },
+        eval: '+0.72',
+        desc: 'Captures active knight and weakens Black b7 pawn',
+        prob: '58.0% White Win Prob',
+        uci: 'bestmove d4c6 (Nxc6 structure disruption)',
+        fill: 55
+      },
+      chaos: {
+        move: { from: 'f1', to: 'c4' },
+        eval: '+0.95',
+        desc: 'Classical bishop development targeting weak f7',
+        prob: '63.0% White Win Prob',
+        uci: 'bestmove f1c4 (Bc4 direct pressure)',
+        fill: 59
+      },
+      drawish: {
+        move: { from: 'c1', to: 'b1' },
+        eval: '+0.30',
+        desc: 'Prophylactic king step to safe dark square',
+        prob: '54.5% Equalized Position',
+        uci: 'bestmove c1b1 (Kb1 king safety)',
+        fill: 52
+      }
     }
   },
   {
-    name: 'Syzygy 7-Man KQ vs KR Conversion',
-    fen: '8/8/8/4k3/8/8/4Q3/4K1r1 w - - 0 1',
-    afterMoveFen: '8/8/8/4k3/4Q3/8/8/4K1r1 b - - 1 1',
-    bestMove: { from: 'e2', to: 'e4' },
-    eval: '+M12',
-    evalDesc: 'Tablebase DTM 12: Forced Queen cross-pin conversion',
+    name: 'Syzygy 7-Piece Endgame Mastery',
+    fen: '4k3/3R2p1/4K1P1/4P3/8/8/r7/8 w - - 0 1',
+    eval: '+M9',
+    evalDesc: 'Syzygy Tablebase: 1. Rxg7! forces mate in 9 moves (DTM 9)',
     winProb: '100% White Win Prob (Proven)',
     evalPercent: 99,
     depth: 'Depth 7-Man / 0.0ms TB',
     speed: 'Instant DTM',
-    tb: 'Syzygy DTM Hit',
+    tb: 'Syzygy 7-Man Hit',
     styles: {
-      best: { move: { from: 'e2', to: 'e4' }, eval: '+M12', desc: 'Tablebase DTM 12: Forced Queen cross-pin conversion', prob: '100% Proven Win', uci: 'bestmove e2e4 (Qe4+ DTM 12)', fill: 99 },
-      aggro: { move: { from: 'e2', to: 'a6' }, eval: '+M14', desc: 'Queen flank check drives enemy king away', prob: '100% Proven Win', uci: 'bestmove e2a6 (Qa6+ DTM 14)', fill: 98 },
-      trap: { move: { from: 'e1', to: 'f2' }, eval: '+M15', desc: 'Baits rook skewer while stepping into mating net', prob: '100% Proven Win', uci: 'bestmove e1f2 (Kf2 king tempo)', fill: 97 },
-      greedy: { move: { from: 'e2', to: 'e4' }, eval: '+M12', desc: 'Mathematical shortest distance to checkmate', prob: '100% Proven Win', uci: 'bestmove e2e4 (optimal DTM sequence)', fill: 99 },
-      chaos: { move: { from: 'e2', to: 'h5' }, eval: '+M16', desc: 'High-degree freedom queen check', prob: '100% Proven Win', uci: 'bestmove e2h5 (Qh5+ tactical check)', fill: 96 },
-      drawish: { move: { from: 'e2', to: 'e4' }, eval: '+M12', desc: 'Simplest non-repetitive winning sequence', prob: '100% Proven Win', uci: 'bestmove e2e4 (simplest winning path)', fill: 99 }
+      best: {
+        move: { from: 'd7', to: 'g7' },
+        eval: '+M9',
+        desc: '1. Rxg7! captures pawn and threatens 2. Rg8# (DTM 9)',
+        prob: '100% White Win Prob (Proven)',
+        uci: 'bestmove d7g7 (Rxg7 DTM 9)',
+        fill: 99
+      },
+      aggro: {
+        move: { from: 'd7', to: 'e7' },
+        eval: '+M11',
+        desc: '1. Re7+! direct rook check forcing King to the edge',
+        prob: '100% White Win Prob (Proven)',
+        uci: 'bestmove d7e7 (Re7+ DTM 11)',
+        fill: 97
+      },
+      trap: {
+        move: { from: 'e6', to: 'f6' },
+        eval: '+M12',
+        desc: '1. Kf6! King advances setting up inescapable mating nets',
+        prob: '100% White Win Prob (Proven)',
+        uci: 'bestmove e6f6 (Kf6 DTM 12)',
+        fill: 96
+      },
+      greedy: {
+        move: { from: 'd7', to: 'g7' },
+        eval: '+M9',
+        desc: '1. Rxg7 strips Black of their last defender',
+        prob: '100% White Win Prob (Proven)',
+        uci: 'bestmove d7g7 (pawn capture DTM 9)',
+        fill: 99
+      },
+      chaos: {
+        move: { from: 'd7', to: 'f7' },
+        eval: '+M14',
+        desc: '1. Rf7 traps Black King against the e-file',
+        prob: '100% White Win Prob (Proven)',
+        uci: 'bestmove d7f7 (Rf7 DTM 14)',
+        fill: 95
+      },
+      drawish: {
+        move: { from: 'd7', to: 'd4' },
+        eval: '+M15',
+        desc: '1. Rd4 safe centralized rook conversion',
+        prob: '100% White Win Prob (Proven)',
+        uci: 'bestmove d7d4 (Rd4 DTM 15)',
+        fill: 94
+      }
     }
   }
 ];
@@ -238,7 +358,70 @@ function renderBoard(fen, highlightFrom, highlightTo) {
   }
 }
 
-function drawVector(fromSq, toSq) {
+// ============================================================================
+// DYNAMIC FEN MOVE APPLIER & VECTOR VISUALIZER
+// ============================================================================
+function applyMoveToFen(fen, from, to) {
+  const parts = fen.split(' ');
+  const rows = parts[0].split('/').map(r => {
+    const row = [];
+    for (const ch of r) {
+      if (ch >= '1' && ch <= '8') {
+        const count = parseInt(ch, 10);
+        for (let i = 0; i < count; i++) row.push(null);
+      } else {
+        row.push(ch);
+      }
+    }
+    return row;
+  });
+
+  const fromCol = FILES.indexOf(from[0]);
+  const fromRow = 8 - parseInt(from[1], 10);
+  const toCol = FILES.indexOf(to[0]);
+  const toRow = 8 - parseInt(to[1], 10);
+
+  const piece = rows[fromRow][fromCol];
+  rows[fromRow][fromCol] = null;
+  rows[toRow][toCol] = piece;
+
+  const newPlacement = rows.map(row => {
+    let emptyCount = 0;
+    let res = '';
+    for (let c = 0; c < 8; c++) {
+      if (!row[c]) {
+        emptyCount++;
+      } else {
+        if (emptyCount > 0) {
+          res += emptyCount;
+          emptyCount = 0;
+        }
+        res += row[c];
+      }
+    }
+    if (emptyCount > 0) res += emptyCount;
+    return res;
+  }).join('/');
+
+  const nextTurn = parts[1] === 'w' ? 'b' : 'w';
+  return `${newPlacement} ${nextTurn} - - 1 1`;
+}
+
+const STYLE_COLORS = {
+  best: { arrow: '#3fd6a3', ring: 'rgba(63, 214, 163, 0.4)' },
+  aggro: { arrow: '#ff4d4d', ring: 'rgba(255, 77, 77, 0.4)' },
+  trap: { arrow: '#f59e0b', ring: 'rgba(245, 158, 11, 0.4)' },
+  greedy: { arrow: '#38bdf8', ring: 'rgba(56, 189, 248, 0.4)' },
+  chaos: { arrow: '#c084fc', ring: 'rgba(192, 132, 252, 0.4)' },
+  drawish: { arrow: '#94a3b8', ring: 'rgba(148, 163, 184, 0.4)' }
+};
+
+function clearVector() {
+  const svg = document.getElementById('svg-overlay');
+  if (svg) svg.innerHTML = '';
+}
+
+function drawVector(fromSq, toSq, styleId = 'best') {
   const svg = document.getElementById('svg-overlay');
   if (!svg) return;
   svg.innerHTML = '';
@@ -254,15 +437,15 @@ function drawVector(fromSq, toSq) {
   const nx = dx / len;
   const ny = dy / len;
 
-  const arrowColor = '#3fd6a3';
-  const targetRingColor = 'rgba(63, 214, 163, 0.4)';
+  const colors = STYLE_COLORS[styleId] || STYLE_COLORS.best;
+  const arrowColor = colors.arrow;
 
   // 1. Source pulsing ring
   const circleFrom = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   circleFrom.setAttribute('cx', from.x);
   circleFrom.setAttribute('cy', from.y);
   circleFrom.setAttribute('r', '0.36');
-  circleFrom.setAttribute('fill', 'rgba(63, 214, 163, 0.20)');
+  circleFrom.setAttribute('fill', colors.ring);
   circleFrom.setAttribute('stroke', arrowColor);
   circleFrom.setAttribute('stroke-width', '0.08');
   svg.appendChild(circleFrom);
@@ -272,7 +455,7 @@ function drawVector(fromSq, toSq) {
   circleTo.setAttribute('cx', to.x);
   circleTo.setAttribute('cy', to.y);
   circleTo.setAttribute('r', '0.38');
-  circleTo.setAttribute('fill', 'rgba(63, 214, 163, 0.25)');
+  circleTo.setAttribute('fill', colors.ring);
   circleTo.setAttribute('stroke', arrowColor);
   circleTo.setAttribute('stroke-width', '0.08');
   svg.appendChild(circleTo);
@@ -298,7 +481,7 @@ function drawVector(fromSq, toSq) {
     lineShadow.setAttribute('stroke-linecap', 'round');
     svg.appendChild(lineShadow);
 
-    // Inner bright emerald line
+    // Inner bright colored line
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.setAttribute('x1', x1);
     line.setAttribute('y1', y1);
@@ -360,18 +543,28 @@ function updateHUD(choice, pos) {
     depthValEl.textContent = depthMatch ? (depthMatch[1] === '7-Man' ? '7-Man' : `${depthMatch[1]}ply`) : '24ply';
   }
 
-  const overhead = (2.7 + Math.random() * 0.9).toFixed(1);
+  const isTb = pos.tb.includes('Syzygy') || currentPosIndex === 2;
+  const overhead = isTb ? '0.1' : (2.7 + Math.random() * 0.9).toFixed(1);
   if (overheadEl) overheadEl.textContent = `${overhead} ms`;
 
   if (consoleEl) {
     const d = new Date();
     const ts = d.toTimeString().split(' ')[0] + '.' + String(d.getMilliseconds()).padStart(3, '0');
-    consoleEl.innerHTML = `
-      <div>[${ts}] <span class="ok">socket</span> Opponent played move (intercepted in 0.1ms)</div>
-      <div>[${ts}] <span class="info">fen</span> Board updated: ${pos.name}</div>
-      <div>[${ts}] <span class="warn">stockfish</span> Best move: ${choice.move.from}${choice.move.to} (${choice.desc.slice(0, 36)}...)</div>
-      <div>[${ts}] <span class="ok">hud</span> Tactical arrow &amp; move guidance ready in ${overhead}ms</div>
-    `;
+    if (isMoved) {
+      consoleEl.innerHTML = `
+        <div>[${ts}] <span class="ok">exec</span> Player dispatched move: ${choice.move.from} → ${choice.move.to}</div>
+        <div>[${ts}] <span class="info">fen</span> Board updated after move: ${pos.name}</div>
+        <div>[${ts}] <span class="warn">stockfish</span> Position evaluated: score ${choice.eval}</div>
+        <div>[${ts}] <span class="ok">hud</span> Live move execution verified in ${overhead}ms</div>
+      `;
+    } else {
+      consoleEl.innerHTML = `
+        <div>[${ts}] <span class="ok">socket</span> Opponent played move (intercepted in 0.1ms)</div>
+        <div>[${ts}] <span class="info">fen</span> Board state derived: ${pos.name}</div>
+        <div>[${ts}] <span class="warn">stockfish</span> Best move calculated: ${choice.move.from} → ${choice.move.to} (${choice.eval})</div>
+        <div>[${ts}] <span class="ok">hud</span> Tactical arrow &amp; HUD telemetry rendered in ${overhead}ms</div>
+      `;
+    }
   }
 }
 
@@ -384,9 +577,18 @@ function setStyle(styleId) {
     btn.classList.toggle('active', btn.dataset.style === styleId);
   });
 
-  const activeFen = isMoved ? pos.afterMoveFen : pos.fen;
-  renderBoard(activeFen, choice.move.from, choice.move.to);
-  drawVector(choice.move.from, choice.move.to);
+  // Reset move state on style switch so user can simulate the new style's move
+  isMoved = false;
+  const playBtn = document.getElementById('btn-play-move');
+  if (playBtn) {
+    playBtn.innerHTML = `<i class="fa-solid fa-play"></i><span>Simulate Move</span>`;
+  }
+
+  const posFen = document.getElementById('board-pos-fen');
+  if (posFen) posFen.textContent = pos.fen;
+
+  renderBoard(pos.fen, choice.move.from, choice.move.to);
+  drawVector(choice.move.from, choice.move.to, styleId);
   updateHUD(choice, pos);
 }
 
@@ -413,17 +615,26 @@ function initShowcase() {
   if (playBtn) {
     playBtn.addEventListener('click', () => {
       const currentPos = DEMO_POSITIONS[currentPosIndex];
-      isMoved = !isMoved;
-
-      const activeFen = isMoved ? currentPos.afterMoveFen : currentPos.fen;
       const choice = currentPos.styles[currentStyle] || currentPos.styles.best;
 
-      renderBoard(activeFen, choice.move.from, choice.move.to);
-      drawVector(choice.move.from, choice.move.to);
+      isMoved = !isMoved;
+      const currentPosFen = document.getElementById('board-pos-fen');
 
-      playBtn.innerHTML = isMoved
-        ? `<i class="fa-solid fa-arrow-rotate-left"></i><span>Takeback</span>`
-        : `<i class="fa-solid fa-play"></i><span>Simulate Move</span>`;
+      if (isMoved) {
+        // Calculate resulting FEN dynamically for THIS EXACT MOVE
+        const resultingFen = applyMoveToFen(currentPos.fen, choice.move.from, choice.move.to);
+        renderBoard(resultingFen, choice.move.from, choice.move.to);
+        clearVector();
+        if (currentPosFen) currentPosFen.textContent = resultingFen;
+
+        playBtn.innerHTML = `<i class="fa-solid fa-arrow-rotate-left"></i><span>Takeback</span>`;
+      } else {
+        renderBoard(currentPos.fen, choice.move.from, choice.move.to);
+        drawVector(choice.move.from, choice.move.to, currentStyle);
+        if (currentPosFen) currentPosFen.textContent = currentPos.fen;
+
+        playBtn.innerHTML = `<i class="fa-solid fa-play"></i><span>Simulate Move</span>`;
+      }
 
       updateHUD(choice, currentPos);
     });
@@ -453,7 +664,17 @@ function initShowcase() {
   if (flipBtn) {
     flipBtn.addEventListener('click', () => {
       isFlipped = !isFlipped;
-      setStyle(currentStyle);
+      const currentPos = DEMO_POSITIONS[currentPosIndex];
+      const choice = currentPos.styles[currentStyle] || currentPos.styles.best;
+
+      if (isMoved) {
+        const resultingFen = applyMoveToFen(currentPos.fen, choice.move.from, choice.move.to);
+        renderBoard(resultingFen, choice.move.from, choice.move.to);
+        clearVector();
+      } else {
+        renderBoard(currentPos.fen, choice.move.from, choice.move.to);
+        drawVector(choice.move.from, choice.move.to, currentStyle);
+      }
     });
   }
 
