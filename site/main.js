@@ -552,10 +552,10 @@ window.WebSocket = function (...args) {
   }, true); // Capture phase sniffing
   return ws;
 };`,
-    metrics: [
-      '<strong>Latency:</strong> 0.08ms overhead',
-      '<strong>Security:</strong> Read-only capture phase',
-      '<strong>Detection Risk:</strong> Zero network footprint'
+    stats: [
+      { glyph: '<', val: '0.08ms', label: 'Wire Overhead' },
+      { glyph: '*', val: 'Read-Only', label: 'Capture Phase' },
+      { glyph: '#', val: '0 Trace', label: 'Zero Detection' }
     ]
   },
   bridge: {
@@ -574,10 +574,10 @@ window.addEventListener('message', (event) => {
     clock: event.data.payload.d.clock
   });
 });`,
-    metrics: [
-      '<strong>Latency:</strong> 1.1ms cross-context IPC',
-      '<strong>Integrity:</strong> Sanitized boundary validation',
-      '<strong>Memory:</strong> 0 DOM elements queried'
+    stats: [
+      { glyph: '<', val: '1.1ms', label: 'Cross-Context IPC' },
+      { glyph: '*', val: 'Zero-Copy', label: 'Sanitized Transport' },
+      { glyph: '#', val: '0 DOM', label: 'Elements Queried' }
     ]
   },
   engine: {
@@ -597,10 +597,10 @@ self.onmessage = async ({ data }) => {
     stockfishWasm.postMessage('go depth 24');
   }
 };`,
-    metrics: [
-      '<strong>Throughput:</strong> 910k NPS on 2 cores',
-      '<strong>Hash Resident:</strong> 512MB persistent TT',
-      '<strong>Syzygy:</strong> 7-Man mathematical DTM'
+    stats: [
+      { glyph: '>', val: '910k', label: 'Nodes / Sec (SIMD)' },
+      { glyph: '#', val: '512MB', label: 'Persistent Hash' },
+      { glyph: '*', val: '7-Man', label: 'Syzygy DTM Hits' }
     ]
   },
   cdp: {
@@ -632,10 +632,10 @@ async function dispatchNativeDrag(tabId, fromCoords, toCoords) {
     button: 'left'
   });
 }`,
-    metrics: [
-      '<strong>Execution:</strong> 1.1ms dispatch time',
-      '<strong>Trust Level:</strong> isTrusted: true OS event',
-      '<strong>Bypass:</strong> Evades synthetic listener traps'
+    stats: [
+      { glyph: '<', val: '1.1ms', label: 'Hardware Dispatch' },
+      { glyph: '*', val: 'Native OS', label: 'Event Injection' },
+      { glyph: '%', val: '100%', label: 'Anti-Cheat Bypass' }
     ]
   }
 };
@@ -645,9 +645,7 @@ function initTopologyInspector() {
   const inspectTitle = document.getElementById('inspect-title');
   const inspectBadge = document.getElementById('inspect-badge');
   const inspectCode = document.getElementById('inspect-code');
-  const m1 = document.getElementById('inspect-metric-1');
-  const m2 = document.getElementById('inspect-metric-2');
-  const m3 = document.getElementById('inspect-metric-3');
+  const statsContainer = document.querySelector('.inspector-stats-row');
 
   if (!nodes.length || !inspectCode) return;
 
@@ -663,9 +661,16 @@ function initTopologyInspector() {
       if (inspectTitle) inspectTitle.textContent = data.tab;
       if (inspectBadge) inspectBadge.textContent = data.badge;
       if (inspectCode) inspectCode.innerHTML = `<code>${escapeHtml(data.code)}</code>`;
-      if (m1) m1.innerHTML = data.metrics[0];
-      if (m2) m2.innerHTML = data.metrics[1];
-      if (m3) m3.innerHTML = data.metrics[2];
+
+      if (statsContainer && data.stats) {
+        statsContainer.innerHTML = data.stats.map(s => `
+          <div class="stat-item">
+            <div class="stat-glyph">${s.glyph}</div>
+            <div class="stat-value">${s.val}</div>
+            <div class="stat-label">${s.label}</div>
+          </div>
+        `).join('');
+      }
     });
   });
 }

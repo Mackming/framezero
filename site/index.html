@@ -23,20 +23,22 @@
 <body id="top">
 
   <!-- ========================================================================
-       HERO VIEWPORT (Cinematic Full-Bleed Video Background)
+       GLOBAL FULL-BLEED VIDEO BACKGROUND (Continuous across entire page)
+       ======================================================================== -->
+  <div class="global-video-bg">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
+        type="video/mp4"
+      />
+    </video>
+    <div class="global-video-overlay"></div>
+  </div>
+
+  <!-- ========================================================================
+       HERO VIEWPORT
        ======================================================================== -->
   <section class="hero-viewport">
-
-    <!-- Video Background with Gradient Fade into Pure Black -->
-    <div class="bg-video-wrap">
-      <video class="bg-video" autoplay muted loop playsinline>
-        <source
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="bg-overlay"></div>
-    </div>
 
     <!-- Floating Header -->
     <header class="header">
@@ -168,12 +170,26 @@
   <section class="section" id="showcase">
     <div class="container">
       <div class="section-head">
-        <div class="section-badge"><span class="dot">●</span> 01 // INTERACTIVE ENVIRONMENT</div>
-        <h2 class="section-title">LIVE TELEMETRY &amp; TACTICAL ENGINE</h2>
-        <p class="section-desc">Experience how FrameZero computes board positions from raw WebSocket packets and executes dynamic vector evaluations before Lichess animations settle.</p>
+        <div class="trust-row section-badge-row">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <i class="fa-solid fa-chess-knight"></i>
+            </div>
+          </div>
+          <div class="trust-pill">
+            01 // Interactive Telemetry
+          </div>
+        </div>
+        <h2 class="section-headline">
+          <span class="hl-line">LIVE TELEMETRY</span>
+          <span class="hl-line">TACTICAL ENGINE</span>
+        </h2>
+        <p class="section-subhead">
+          Intercept round WebSocket packets before DOM rendering. Evaluate with local WebAssembly Stockfish 19 NNUE and execute replies at hardware speed.
+        </p>
       </div>
 
-      <div class="showcase-plate">
+      <div class="showcase-plate glass-monolith">
         <!-- Telemetry Status Bar -->
         <div class="plate-header">
           <div class="window-dots">
@@ -210,19 +226,19 @@
               </svg>
             </div>
 
-            <!-- Board Control Bar -->
+            <!-- Board Control Bar (Hero Styled Buttons) -->
             <div class="board-actions">
-              <button class="board-btn primary" id="btn-play-move" title="Simulate next opponent move">
-                <i class="fa-solid fa-play"></i>
+              <button class="cta-pill sm" id="btn-play-move" title="Simulate next opponent move">
                 <span>Simulate Move</span>
+                <i class="fa-solid fa-play" style="font-size: 11px;"></i>
               </button>
-              <button class="board-btn" id="btn-reset-board" title="Cycle to next benchmark position">
-                <i class="fa-solid fa-rotate"></i>
+              <button class="cta-secondary sm" id="btn-reset-board" title="Cycle to next benchmark position">
                 <span>Cycle Position</span>
+                <i class="fa-solid fa-rotate" style="font-size: 11px;"></i>
               </button>
-              <button class="board-btn" id="btn-flip-board" title="Flip board perspective">
-                <i class="fa-solid fa-arrows-up-down"></i>
+              <button class="cta-secondary sm" id="btn-flip-board" title="Flip board perspective">
                 <span>Flip Board</span>
+                <i class="fa-solid fa-arrows-up-down" style="font-size: 11px;"></i>
               </button>
             </div>
           </div>
@@ -260,42 +276,30 @@
               </div>
             </div>
 
-            <!-- 4 Real-Time Telemetry Gauges -->
-            <div class="hud-metrics">
-              <div class="metric-pill">
-                <div class="metric-k">
-                  <i class="fa-solid fa-bolt-lightning" style="color: var(--accent);"></i>
-                  WIRE OVERHEAD
-                </div>
-                <div class="metric-v accent" id="hud-overhead">3.2 ms</div>
-                <div class="metric-sub mono">Δ socket-to-eval</div>
+            <!-- 4 Real-Time Telemetry Gauges (Styled matching Hero Stats Footer) -->
+            <div class="stats-footer hud-stats-grid">
+              <div class="stat-item">
+                <div class="stat-glyph">&lt;</div>
+                <div class="stat-value" id="hud-overhead">3.2ms</div>
+                <div class="stat-label">Wire Overhead</div>
               </div>
 
-              <div class="metric-pill">
-                <div class="metric-k">
-                  <i class="fa-solid fa-gauge-high" style="color: #60a5fa;"></i>
-                  SEARCH SPEED
-                </div>
-                <div class="metric-v" id="hud-speed">910k NPS</div>
-                <div class="metric-sub mono">WASM SIMD 2-Core</div>
+              <div class="stat-item">
+                <div class="stat-glyph">*</div>
+                <div class="stat-value" id="hud-depth-val">24ply</div>
+                <div class="stat-label">Search Depth</div>
               </div>
 
-              <div class="metric-pill">
-                <div class="metric-k">
-                  <i class="fa-solid fa-database" style="color: #a78bfa;"></i>
-                  TABLEBASE
-                </div>
-                <div class="metric-v" id="hud-tb">Syzygy 7-Man</div>
-                <div class="metric-sub mono">DTM Optimal Cache</div>
+              <div class="stat-item">
+                <div class="stat-glyph">&gt;</div>
+                <div class="stat-value" id="hud-speed">910k</div>
+                <div class="stat-label">Nodes / Sec</div>
               </div>
 
-              <div class="metric-pill">
-                <div class="metric-k">
-                  <i class="fa-solid fa-arrow-pointer" style="color: #f472b6;"></i>
-                  INPUT PROTOCOL
-                </div>
-                <div class="metric-v" id="hud-cdp">CDP Trusted</div>
-                <div class="metric-sub mono">isTrusted: true</div>
+              <div class="stat-item">
+                <div class="stat-glyph">#</div>
+                <div class="stat-value" id="hud-tb">7-Man</div>
+                <div class="stat-label">Syzygy Cache</div>
               </div>
             </div>
 
@@ -364,21 +368,35 @@
   <section class="section" id="latency">
     <div class="container">
       <div class="section-head">
-        <div class="section-badge"><span class="dot">●</span> 02 // LATENCY TELEMETRY</div>
-        <h2 class="section-title">THE WIRE VS. THE DOM</h2>
-        <p class="section-desc">Why traditional DOM-scraping extensions lose at bullet speeds—and how capturing raw WebSocket frames eliminates 361.8 ms of lag.</p>
+        <div class="trust-row section-badge-row">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <i class="fa-solid fa-stopwatch-20"></i>
+            </div>
+          </div>
+          <div class="trust-pill">
+            02 // The Wire vs The DOM
+          </div>
+        </div>
+        <h2 class="section-headline">
+          <span class="hl-line">ELIMINATE 360MS</span>
+          <span class="hl-line">OF BROWSER LATENCY</span>
+        </h2>
+        <p class="section-subhead">
+          Traditional DOM scrapers wait for CSS animations and MutationObservers. FrameZero intercepts raw binary frames at the network socket layer.
+        </p>
       </div>
 
       <!-- Latency Race Simulator Plate -->
-      <div class="latency-sim-plate">
+      <div class="latency-sim-plate glass-monolith">
         <div class="sim-header">
           <div class="sim-title">
             <i class="fa-solid fa-stopwatch-20"></i>
             <span>Interactive Real-Time Packet Arrival Simulator</span>
           </div>
-          <button class="sim-fire-btn" id="btn-fire-race">
-            <i class="fa-solid fa-play"></i>
+          <button class="cta-pill sm" id="btn-fire-race">
             <span>Trigger Packet Event</span>
+            <i class="fa-solid fa-bolt" style="font-size: 11px;"></i>
           </button>
         </div>
 
@@ -451,43 +469,56 @@
           </div>
         </div>
 
-        <!-- Delta Speed Banner -->
-        <div class="delta-banner">
-          <div class="delta-metric">
-            <span class="delta-num mono">361.8 ms</span>
-            <span class="delta-text">Latency Eliminated Per Move</span>
+        <!-- Delta Speed Banner (Hero Stats Style) -->
+        <div class="stats-footer section-stats-row">
+          <div class="stat-item">
+            <div class="stat-glyph">&lt;</div>
+            <div class="stat-value accent">361.8ms</div>
+            <div class="stat-label">Latency Saved Per Move</div>
           </div>
-          <div class="delta-sep"></div>
-          <div class="delta-metric">
-            <span class="delta-num mono">114.1×</span>
-            <span class="delta-text">Throughput Acceleration Ratio</span>
+          <div class="stat-item">
+            <div class="stat-glyph">*</div>
+            <div class="stat-value">114.1x</div>
+            <div class="stat-label">Throughput Acceleration</div>
           </div>
-          <div class="delta-sep"></div>
-          <div class="delta-metric">
-            <span class="delta-num mono">0 ms</span>
-            <span class="delta-text">DOM Tree Traversal Overhead</span>
+          <div class="stat-item">
+            <div class="stat-glyph">#</div>
+            <div class="stat-value">0ms</div>
+            <div class="stat-label">DOM Traversal Overhead</div>
           </div>
         </div>
       </div>
 
-      <!-- 3 Technical Architecture Breakdown Cards -->
+      <!-- 3 Technical Architecture Breakdown Cards (Hero Avatar Ring Style) -->
       <div class="latency-grid">
-        <div class="latency-card">
-          <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+        <div class="latency-card glass-monolith">
+          <div class="avatar-ring card-avatar">
+            <div class="avatar-inner">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+          </div>
           <h3>Pre-Animation FEN Resolution</h3>
-          <p>Traditional bots read square styles like <code>transform: translate3d(240px, 120px, 0)</code> after CSS transitions finish. FrameZero parses the raw WebSocket opcode <code>d.moves</code> the exact nanosecond the TCP frame arrives.</p>
+          <p>FrameZero sniffs the raw WebSocket opcode <code>d.moves</code> the nanosecond the TCP frame lands—bypassing 220ms of CSS piece sliding animations.</p>
         </div>
 
-        <div class="latency-card">
-          <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+        <div class="latency-card glass-monolith">
+          <div class="avatar-ring card-avatar">
+            <div class="avatar-inner">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+          </div>
           <h3>Persistent Offscreen Host</h3>
-          <p>Chrome Manifest V3 service workers forcibly terminate after 30 seconds of inactivity, introducing 60ms+ cold starts. FrameZero anchors a dedicated Offscreen Worker that keeps 512MB of Stockfish transposition tables permanently warm.</p>
+          <p>Maintains a persistent WebAssembly Stockfish thread with 512MB transposition hash warm in memory, avoiding Manifest V3 worker cold starts.</p>
         </div>
 
-        <div class="latency-card">
-          <div class="card-icon"><i class="fa-solid fa-arrow-pointer"></i></div>
-          <h3>Native Hardware Mouse Dispatch</h3>
-          <p>Instead of synthetic JavaScript <code>dispatchEvent()</code> calls that anti-cheat filters easily detect with <code>isTrusted: false</code>, FrameZero attaches via Chrome DevTools Protocol to emit authentic OS-level input vectors.</p>
+        <div class="latency-card glass-monolith">
+          <div class="avatar-ring card-avatar">
+            <div class="avatar-inner">
+              <i class="fa-solid fa-arrow-pointer"></i>
+            </div>
+          </div>
+          <h3>Hardware Mouse Injection</h3>
+          <p>Attaches via Chrome DevTools Protocol to emit authentic OS mouse vectors with <code>isTrusted: true</code>, bypassing heuristic anticheat.</p>
         </div>
       </div>
     </div>
@@ -499,13 +530,27 @@
   <section class="section" id="architecture">
     <div class="container">
       <div class="section-head">
-        <div class="section-badge"><span class="dot">●</span> 03 // SYSTEMS ARCHITECTURE</div>
-        <h2 class="section-title">FOUR-TIER HYPERVISOR ARCHITECTURE</h2>
-        <p class="section-desc">Coordinating four isolated browser execution contexts to achieve sub-millisecond throughput within Manifest V3 security boundaries.</p>
+        <div class="trust-row section-badge-row">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+          </div>
+          <div class="trust-pill">
+            03 // Systems Architecture
+          </div>
+        </div>
+        <h2 class="section-headline">
+          <span class="hl-line">FOUR-TIER</span>
+          <span class="hl-line">HYPERVISOR RUNTIME</span>
+        </h2>
+        <p class="section-subhead">
+          Coordinating four isolated browser execution contexts to achieve sub-millisecond throughput within Manifest V3 security boundaries.
+        </p>
       </div>
 
       <!-- Interactive Architecture Topology Diagram -->
-      <div class="topology-plate">
+      <div class="topology-plate glass-monolith">
         <div class="topology-head">
           <div class="mono topology-title">
             <i class="fa-solid fa-diagram-project"></i>
@@ -519,7 +564,11 @@
           <!-- Node 1 -->
           <div class="topo-node active" data-node="net">
             <div class="node-tag mono">STAGE 01</div>
-            <div class="node-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+            <div class="avatar-ring node-avatar">
+              <div class="avatar-inner">
+                <i class="fa-solid fa-satellite-dish"></i>
+              </div>
+            </div>
             <div class="node-title">MAIN World WSS Tap</div>
             <div class="node-meta mono">document_start // 0.1ms</div>
             <div class="node-pulse"></div>
@@ -533,7 +582,11 @@
           <!-- Node 2 -->
           <div class="topo-node" data-node="bridge">
             <div class="node-tag mono">STAGE 02</div>
-            <div class="node-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="avatar-ring node-avatar">
+              <div class="avatar-inner">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+            </div>
             <div class="node-title">Isolated Bridge Context</div>
             <div class="node-meta mono">chrome.runtime.Port</div>
             <div class="node-pulse"></div>
@@ -547,7 +600,11 @@
           <!-- Node 3 -->
           <div class="topo-node" data-node="engine">
             <div class="node-tag mono">STAGE 03</div>
-            <div class="node-icon"><i class="fa-solid fa-microchip"></i></div>
+            <div class="avatar-ring node-avatar">
+              <div class="avatar-inner">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+            </div>
             <div class="node-title">Offscreen Engine Host</div>
             <div class="node-meta mono">SF19 WASM + Syzygy 7M</div>
             <div class="node-pulse"></div>
@@ -561,7 +618,11 @@
           <!-- Node 4 -->
           <div class="topo-node" data-node="cdp">
             <div class="node-tag mono">STAGE 04</div>
-            <div class="node-icon"><i class="fa-solid fa-arrow-pointer"></i></div>
+            <div class="avatar-ring node-avatar">
+              <div class="avatar-inner">
+                <i class="fa-solid fa-arrow-pointer"></i>
+              </div>
+            </div>
             <div class="node-title">CDP Hardware Dispatch</div>
             <div class="node-meta mono">isTrusted: true // 1.1ms</div>
             <div class="node-pulse"></div>
@@ -590,10 +651,23 @@ window.WebSocket = function (...args) {
   return ws;
 };</code></pre>
           </div>
-          <div class="inspector-footer">
-            <div class="inspector-metric mono" id="inspect-metric-1"><strong>Latency:</strong> 0.08ms overhead</div>
-            <div class="inspector-metric mono" id="inspect-metric-2"><strong>Security:</strong> Read-only capture phase</div>
-            <div class="inspector-metric mono" id="inspect-metric-3"><strong>Detection Risk:</strong> Zero network footprint</div>
+          <!-- Inspector Stats Footer (Hero Format) -->
+          <div class="stats-footer inspector-stats-row">
+            <div class="stat-item">
+              <div class="stat-glyph">&lt;</div>
+              <div class="stat-value" id="inspect-metric-1">0.08ms</div>
+              <div class="stat-label">Wire Latency</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-glyph">*</div>
+              <div class="stat-value" id="inspect-metric-2">Read-Only</div>
+              <div class="stat-label">Capture Phase</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-glyph">#</div>
+              <div class="stat-value" id="inspect-metric-3">0 Trace</div>
+              <div class="stat-label">Detection Risk</div>
+            </div>
           </div>
         </div>
       </div>
@@ -606,12 +680,26 @@ window.WebSocket = function (...args) {
   <section class="section" id="benchmarks">
     <div class="container">
       <div class="section-head">
-        <div class="section-badge"><span class="dot">●</span> 04 // EMPIRICAL BENCHMARKS</div>
-        <h2 class="section-title">TACTICAL DEPTH &amp; ENGINE COMPARATOR</h2>
-        <p class="section-desc">Empirically measured search depth and nodes per second across 1,000 tactical positions under strict WebAssembly hardware constraints.</p>
+        <div class="trust-row section-badge-row">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+          </div>
+          <div class="trust-pill">
+            04 // Empirical Benchmarks
+          </div>
+        </div>
+        <h2 class="section-headline">
+          <span class="hl-line">EMPIRICAL DEPTH</span>
+          <span class="hl-line">&amp; THROUGHPUT</span>
+        </h2>
+        <p class="section-subhead">
+          Empirically measured search depth and nodes per second across 1,000 tactical positions under strict WebAssembly hardware constraints.
+        </p>
       </div>
 
-      <div class="bench-plate">
+      <div class="bench-plate glass-monolith">
         <!-- Interactive Budget Controls -->
         <div class="bench-controls">
           <div class="bench-label mono">
@@ -715,34 +803,27 @@ window.WebSocket = function (...args) {
           </div>
         </div>
 
-        <!-- 4 Metric Cards -->
-        <div class="bench-meta-grid">
-          <div class="bench-meta-card">
-            <div class="meta-icon"><i class="fa-solid fa-memory"></i></div>
-            <div class="meta-val mono">18.4 MB</div>
-            <div class="meta-label">Memory Footprint</div>
-            <div class="meta-sub">Fits in L3 cache</div>
+        <!-- 4 Hero-style Stats Cards -->
+        <div class="stats-footer section-stats-row">
+          <div class="stat-item">
+            <div class="stat-glyph">#</div>
+            <div class="stat-value">18.4MB</div>
+            <div class="stat-label">Memory Footprint</div>
           </div>
-
-          <div class="bench-meta-card">
-            <div class="meta-icon"><i class="fa-solid fa-microchip"></i></div>
-            <div class="meta-val mono">2 Threads</div>
-            <div class="meta-label">WebAssembly SIMD</div>
-            <div class="meta-sub">Zero battery drain</div>
+          <div class="stat-item">
+            <div class="stat-glyph">*</div>
+            <div class="stat-value">2 Cores</div>
+            <div class="stat-label">WASM SIMD Budget</div>
           </div>
-
-          <div class="bench-meta-card">
-            <div class="meta-icon"><i class="fa-solid fa-server"></i></div>
-            <div class="meta-val mono">0.0 ms</div>
-            <div class="meta-label">7-Man Syzygy Hits</div>
-            <div class="meta-sub">Mathematical certainty</div>
+          <div class="stat-item">
+            <div class="stat-glyph">&lt;</div>
+            <div class="stat-value">0.0ms</div>
+            <div class="stat-label">Syzygy Cache Hits</div>
           </div>
-
-          <div class="bench-meta-card">
-            <div class="meta-icon"><i class="fa-solid fa-shield-check"></i></div>
-            <div class="meta-val mono">100%</div>
-            <div class="meta-label">Client-Side Privacy</div>
-            <div class="meta-sub">Zero cloud telemetry</div>
+          <div class="stat-item">
+            <div class="stat-glyph">%</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Client-Side Privacy</div>
           </div>
         </div>
       </div>
@@ -755,14 +836,28 @@ window.WebSocket = function (...args) {
   <section class="section" id="install">
     <div class="container">
       <div class="section-head">
-        <div class="section-badge"><span class="dot">●</span> 05 // DEPLOYMENT</div>
-        <h2 class="section-title">INSTALL IN 60 SECONDS &amp; KEY DECK</h2>
-        <p class="section-desc">Runs unpackaged on any Chromium-based browser (Chrome, Brave, Edge, Arc, Opera) with instant hardware CDP attachment.</p>
+        <div class="trust-row section-badge-row">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+          </div>
+          <div class="trust-pill">
+            05 // Instant Deployment
+          </div>
+        </div>
+        <h2 class="section-headline">
+          <span class="hl-line">INSTALL IN 60s</span>
+          <span class="hl-line">&amp; COMMAND DECK</span>
+        </h2>
+        <p class="section-subhead">
+          Runs unpackaged on any Chromium browser with instant Chrome DevTools Protocol hardware attachment.
+        </p>
       </div>
 
       <div class="install-deck-grid">
         <!-- Terminal Deployment Box -->
-        <div class="deploy-terminal-plate">
+        <div class="deploy-terminal-plate glass-monolith">
           <div class="deploy-tabs">
             <button class="deploy-tab active" data-tab="git">
               <i class="fa-brands fa-git-alt"></i>
@@ -782,9 +877,9 @@ window.WebSocket = function (...args) {
             <div class="cmd-box">
               <span class="cmd-prompt mono">$</span>
               <code class="cmd-text mono" id="cmd-install-text">git clone https://github.com/Mackming/framezero.git</code>
-              <button class="cmd-copy-btn" id="btn-copy-install" title="Copy command">
-                <i class="fa-regular fa-copy"></i>
+              <button class="cta-pill sm" id="btn-copy-install" title="Copy command">
                 <span>Copy</span>
+                <i class="fa-regular fa-copy" style="font-size: 11px;"></i>
               </button>
             </div>
           </div>
@@ -810,7 +905,7 @@ window.WebSocket = function (...args) {
         </div>
 
         <!-- Tactile Hotkey Command Deck -->
-        <div class="hotkey-plate">
+        <div class="hotkey-plate glass-monolith">
           <div class="hotkey-head">
             <div class="mono hotkey-title">
               <i class="fa-solid fa-keyboard"></i>
@@ -873,18 +968,18 @@ window.WebSocket = function (...args) {
             </div>
           </div>
 
-          <!-- Compliance & Safety Badges -->
+          <!-- Compliance & Safety Badges (Hero Capsule Style) -->
           <div class="trust-banner">
-            <div class="trust-col">
-              <i class="fa-solid fa-circle-check" style="color: var(--accent);"></i>
+            <div class="trust-pill-tag">
+              <i class="fa-solid fa-circle-check"></i>
               <span>Manifest V3 Certified</span>
             </div>
-            <div class="trust-col">
-              <i class="fa-solid fa-circle-check" style="color: var(--accent);"></i>
+            <div class="trust-pill-tag">
+              <i class="fa-solid fa-circle-check"></i>
               <span>100% Client-Side WASM</span>
             </div>
-            <div class="trust-col">
-              <i class="fa-solid fa-circle-check" style="color: var(--accent);"></i>
+            <div class="trust-pill-tag">
+              <i class="fa-solid fa-circle-check"></i>
               <span>Zero External Telemetry</span>
             </div>
           </div>
