@@ -3,8 +3,6 @@
    Unified Dark Minimalist & Retro Dot-Matrix Visual Language
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap');
-
 :root {
   --bg: #000000;
   --surface: #121215;
@@ -553,6 +551,32 @@ a {
 
 .section-badge-row {
   margin-bottom: clamp(16px, 2.2vh, 24px);
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Avatar Ring is ALWAYS in front of the pill in section headers */
+.section-badge-row .avatar-ring {
+  z-index: 5 !important;
+  margin-left: 0 !important;
+  position: relative !important;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.section-badge-row .avatar-ring:hover {
+  transform: translateY(-2px);
+}
+
+/* Pill extends out from behind the avatar ring with clean clearance */
+.section-badge-row .trust-pill {
+  z-index: 2 !important;
+  position: relative !important;
+  margin-left: calc(var(--trust-size) * -0.38) !important;
+  padding-left: calc(var(--trust-size) * 0.58 + 8px) !important;
+  padding-right: 22px !important;
 }
 
 .section-headline {

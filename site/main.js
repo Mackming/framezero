@@ -18,6 +18,7 @@ function easeOutCubic(t) {
 }
 
 function animateValue(el, target, suffix, decimals, duration, delay) {
+  if (typeof target !== 'number' || isNaN(target)) return;
   setTimeout(() => {
     const startTime = performance.now();
 
@@ -41,27 +42,29 @@ function animateValue(el, target, suffix, decimals, duration, delay) {
 }
 
 function initCounters() {
-  const statValues = document.querySelectorAll('.stat-value');
+  const statContainers = document.querySelectorAll('.stats-footer');
+  if (!statContainers.length) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        const statValues = entry.target.querySelectorAll('.stat-value[data-target]');
         statValues.forEach((el, i) => {
           const target = parseFloat(el.dataset.target);
+          if (isNaN(target)) return;
           const suffix = el.dataset.suffix || '';
           const decimals = parseInt(el.dataset.decimals || '0', 10);
-          const duration = 1400 + i * 80;
-          const delay = 350 + i * 90;
+          const duration = 1200 + i * 80;
+          const delay = 150 + i * 80;
 
           animateValue(el, target, suffix, decimals, duration, delay);
         });
-        observer.disconnect();
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15 });
 
-  const footer = document.querySelector('.stats-footer');
-  if (footer) observer.observe(footer);
+  statContainers.forEach(container => observer.observe(container));
 }
 
 // ============================================================================
@@ -350,6 +353,12 @@ function updateHUD(choice, pos) {
   if (speedEl) speedEl.textContent = pos.speed;
   if (tbEl) tbEl.textContent = pos.tb;
   if (badgeEl) badgeEl.textContent = currentStyle.toUpperCase();
+
+  const depthValEl = document.getElementById('hud-depth-val');
+  if (depthValEl) {
+    const depthMatch = pos.depth.match(/Depth\s+([\w-]+)/i);
+    depthValEl.textContent = depthMatch ? (depthMatch[1] === '7-Man' ? '7-Man' : `${depthMatch[1]}ply`) : '24ply';
+  }
 
   const overhead = (2.7 + Math.random() * 0.9).toFixed(1);
   if (overheadEl) overheadEl.textContent = `${overhead} ms`;

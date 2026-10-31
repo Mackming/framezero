@@ -43,9 +43,10 @@ const server = http.createServer((req, res) => {
     }
 
     const ext = path.extname(filePath).toLowerCase();
+    const isStaticAsset = ['.svg', '.webp', '.png', '.jpg', '.ico', '.woff', '.woff2', '.ttf'].includes(ext);
     res.writeHead(200, {
       'Content-Type': MIME_TYPES[ext] || 'application/octet-stream',
-      'Cache-Control': 'no-cache'
+      'Cache-Control': isStaticAsset ? 'public, max-age=86400, immutable' : 'no-cache'
     });
     res.end(data);
   });
