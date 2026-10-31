@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrameZero — Logo Exploration & Review</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #09090b;
+      color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 40px 24px 80px;
+      margin: 0;
+    }
+    .preview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+    }
+    .header p {
+      color: #a1a1aa;
+      font-size: 16px;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+    .card {
+      background: #121217;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #e4e4e7;
+    }
+    .badge.recommended {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+    .img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+    .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
+    .card p {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #a1a1aa;
+      margin: 0;
+      flex-grow: 1;
+    }
+    .mockups {
+      margin-top: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mockup-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .mockup-label {
+      font-size: 10px;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .navbar-btn-mockup {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .navbar-btn-mockup img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    .ext-icon-48 {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .ext-icon-48 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ext-icon-16 {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .ext-icon-16 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <div class="header">
+      <div class="badge" style="margin-bottom: 12px;">Brand Identity Exploration</div>
+      <h1>FrameZero Logo Variations</h1>
+      <p>Comparing 4 modern visual concepts combining chess mastery with sub-millisecond execution.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Concept 1 -->
+      <div class="card">
+        <span class="badge">Concept 1</span>
+        <div class="img-wrap">
+          <img src="assets/logo_options/concept_1_cyber_knight.jpg" alt="Cyber Geometric Knight">
+        </div>
+        <h2>Cyber Geometric Knight</h2>
+        <p>Sharp chiseled polygonal knight head with faceted titanium surfaces, glowing cyan/emerald neon traces, and circuit lines. Aggressive, technical esports aesthetic.</p>
+        <div class="mockups">
+          <div class="mockup-item">
+            <div class="navbar-btn-mockup"><img src="assets/logo_options/concept_1_cyber_knight.jpg"></div>
+            <span class="mockup-label">Navbar</span>
+          </div>
+          <div class="mockup-item">
+            <div class="ext-icon-48"><img src="assets/logo_options/concept_1_cyber_knight.jpg"></div>
+            <span class="mockup-label">36px App</span>
+          </div>
+          <div class="mockup-item">
+            <div class="ext-icon-16"><img src="assets/logo_options/concept_1_cyber_knight.jpg"></div>
+            <span class="mockup-label">16px Tab</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 2 -->
+      <div class="card" style="border-color: rgba(245, 158, 11, 0.4); background: radial-gradient(circle at top, rgba(245, 158, 11, 0.05), #121217 60%);">
+        <span class="badge recommended">Concept 2 · Recommended</span>
+        <div class="img-wrap">
+          <img src="assets/logo_options/concept_2_zero_monogram.jpg" alt="The Zero Monogram">
+        </div>
+        <h2>The Zero Monogram</h2>
+        <p>Seamless fusion of the numeral "0" with a proud chess knight profile in warm amber/coral glow. Perfectly matches FrameZero's warm cinematic landing page tones.</p>
+        <div class="mockups">
+          <div class="mockup-item">
+            <div class="navbar-btn-mockup"><img src="assets/logo_options/concept_2_zero_monogram.jpg"></div>
+            <span class="mockup-label">Navbar</span>
+          </div>
+          <div class="mockup-item">
+            <div class="ext-icon-48"><img src="assets/logo_options/concept_2_zero_monogram.jpg"></div>
+            <span class="mockup-label">36px App</span>
+          </div>
+          <div class="mockup-item">
+            <div class="ext-icon-16"><img src="assets/logo_options/concept_2_zero_monogram.jpg"></div>
+            <span class="mockup-label">16px Tab</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 3 -->
+      <div class="card">
+        <span class="badge">Concept 3</span>
+        <div class="img-wrap">
+          <img src="assets/logo_options/concept_3_swiss_minimalist.jpg" alt="Swiss Minimalist Knight">
+        </div>
+        <h2>Swiss Minimalist Knight</h2>
+        <p>Stark monochrome silhouette with micro dot-matrix halftone shading. Ultra-clean, timeless, and legible at small favicon and toolbar sizes.</p>
+        <div class="mockups">
+          <div class="mockup-item">
+            <div class="navbar-btn-mockup"><img src="assets/logo_options/concept_3_swiss_minimalist.jpg"></div>
+            <span class="mockup-label">Navbar</span>
+          </div>
+          <div class="mockup-item">
+            <div class="ext-icon-48"><img src="assets/logo_options/concept_3_swiss_minimalist.jpg"></div>
+            <span class="mockup-label">36px App</span>
+          </div>
+          <div class="mockup-item">
+            <div class="ext-icon-16"><img src="assets/logo_options/concept_3_swiss_minimalist.jpg"></div>
+            <span class="mockup-label">16px Tab</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept 4 -->
+      <div class="card">
+        <span class="badge">Concept 4</span>
+        <div class="img-wrap">
+          <img src="assets/logo_options/concept_4_neural_quantum_core.jpg" alt="Neural Quantum Core">
+        </div>
+        <h2>Neural Quantum Core</h2>
+        <p>Crystalline holographic knight piece mounted onto a central microchip processor die with radiating gold and cyan circuit traces on carbon fiber.</p>
+        <div class="mockups">
+          <div class="mockup-item">
+            <div class="navbar-btn-mockup"><img src="assets/logo_options/concept_4_neural_quantum_core.jpg"></div>
+            <span class="mockup-label">Navbar</span>
+          </div>
+          <div class="mockup-item">
+            <div class="ext-icon-48"><img src="assets/logo_options/concept_4_neural_quantum_core.jpg"></div>
+            <span class="mockup-label">36px App</span>
+          </div>
+          <div class="mockup-item">
+            <div class="ext-icon-16"><img src="assets/logo_options/concept_4_neural_quantum_core.jpg"></div>
+            <span class="mockup-label">16px Tab</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
