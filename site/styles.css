@@ -445,6 +445,9 @@ a {
   align-items: center;
   text-align: center;
   gap: 3px;
+}
+
+.hero-viewport .stat-item {
   animation: reveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--d, 0.5s);
 }
@@ -1582,6 +1585,44 @@ a {
 }
 
 .inspector-metric strong { color: #ffffff; }
+
+/* Code Inspector Telemetry Status Bar (Instant 0ms update, no delay) */
+.inspector-stats-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+  padding: 16px 20px !important;
+  background: rgba(12, 12, 18, 0.95) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.inspector-stats-row .stat-item {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  gap: 3px !important;
+}
+
+.inspector-stats-row .stat-glyph {
+  font-size: 16px !important;
+  color: var(--accent) !important;
+  line-height: 1 !important;
+}
+
+.inspector-stats-row .stat-value {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.01em !important;
+}
+
+.inspector-stats-row .stat-label {
+  font-size: 11px !important;
+  color: #8e8e93 !important;
+}
 
 /* ==========================================================================
    SECTION 4: EMPIRICAL BENCHMARKS (Tactical Depth & Comparator)
