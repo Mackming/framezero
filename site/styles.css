@@ -103,6 +103,8 @@ a {
   pointer-events: none;
   overflow: hidden;
   background: #000000;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .global-video-bg .bg-video {
@@ -499,6 +501,8 @@ a {
   padding: clamp(110px, 15vh, 160px) 0;
   position: relative;
   z-index: 1;
+  content-visibility: auto;
+  contain-intrinsic-size: 850px;
 }
 
 /* Ambient Warm Cinematic Light Blooms (Matching Hero Torus / Video Color) */
@@ -507,38 +511,34 @@ a {
   position: absolute;
   top: 10%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate3d(-50%, 0, 0);
   width: min(1140px, 94vw);
   height: 680px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
   opacity: 0.85;
+  will-change: transform;
 }
 
 #showcase::before {
-  background: radial-gradient(ellipse at 50% 30%, rgba(240, 75, 105, 0.24) 0%, rgba(245, 158, 11, 0.12) 38%, rgba(130, 24, 75, 0.05) 65%, transparent 80%);
-  filter: blur(80px);
+  background: radial-gradient(ellipse at 50% 30%, rgba(240, 75, 105, 0.22) 0%, rgba(245, 158, 11, 0.10) 30%, rgba(130, 24, 75, 0.04) 55%, transparent 70%);
 }
 
 #latency::before {
-  background: radial-gradient(ellipse at 50% 35%, rgba(235, 55, 80, 0.26) 0%, rgba(217, 70, 239, 0.10) 42%, rgba(254, 97, 0, 0.06) 65%, transparent 80%);
-  filter: blur(85px);
+  background: radial-gradient(ellipse at 50% 35%, rgba(235, 55, 80, 0.22) 0%, rgba(217, 70, 239, 0.08) 32%, rgba(254, 97, 0, 0.04) 55%, transparent 70%);
 }
 
 #architecture::before {
-  background: radial-gradient(ellipse at 50% 35%, rgba(245, 158, 11, 0.22) 0%, rgba(240, 80, 110, 0.12) 40%, rgba(63, 214, 163, 0.06) 65%, transparent 80%);
-  filter: blur(80px);
+  background: radial-gradient(ellipse at 50% 35%, rgba(245, 158, 11, 0.18) 0%, rgba(240, 80, 110, 0.09) 32%, rgba(63, 214, 163, 0.04) 55%, transparent 70%);
 }
 
 #benchmarks::before {
-  background: radial-gradient(ellipse at 50% 35%, rgba(244, 63, 94, 0.24) 0%, rgba(249, 115, 22, 0.12) 42%, rgba(168, 85, 247, 0.06) 68%, transparent 80%);
-  filter: blur(85px);
+  background: radial-gradient(ellipse at 50% 35%, rgba(244, 63, 94, 0.20) 0%, rgba(249, 115, 22, 0.10) 32%, rgba(168, 85, 247, 0.04) 55%, transparent 70%);
 }
 
 #install::before {
-  background: radial-gradient(ellipse at 50% 35%, rgba(249, 115, 22, 0.22) 0%, rgba(240, 75, 105, 0.14) 40%, rgba(255, 255, 255, 0.05) 65%, transparent 80%);
-  filter: blur(80px);
+  background: radial-gradient(ellipse at 50% 35%, rgba(249, 115, 22, 0.18) 0%, rgba(240, 75, 105, 0.10) 32%, rgba(255, 255, 255, 0.03) 55%, transparent 70%);
 }
 
 .section-head {
@@ -609,15 +609,16 @@ a {
 
 /* Translucent Frosted Glass Monolith Plate */
 .glass-monolith {
-  background: rgba(18, 16, 24, 0.58) !important;
-  backdrop-filter: blur(36px) !important;
-  -webkit-backdrop-filter: blur(36px) !important;
+  background: rgba(18, 16, 24, 0.65) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.14) !important;
   border-radius: 32px !important;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.70), inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 70px rgba(240, 75, 105, 0.08) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.60), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
   overflow: hidden;
   position: relative;
   z-index: 1;
+  transform: translateZ(0);
 }
 
 /* Unified Hero Button Styles */

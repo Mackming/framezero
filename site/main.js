@@ -42,29 +42,25 @@ function animateValue(el, target, suffix, decimals, duration, delay) {
 }
 
 function initCounters() {
-  const statContainers = document.querySelectorAll('.stats-footer');
-  if (!statContainers.length) return;
+  // 1. Hero viewport counters animate smoothly once on page entrance
+  const heroCounters = document.querySelectorAll('.hero-viewport .stat-value[data-target]');
+  heroCounters.forEach((el, i) => {
+    const target = parseFloat(el.dataset.target);
+    if (isNaN(target)) return;
+    const suffix = el.dataset.suffix || '';
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    animateValue(el, target, suffix, decimals, 900, 150 + i * 80);
+  });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const statValues = entry.target.querySelectorAll('.stat-value[data-target]');
-        statValues.forEach((el, i) => {
-          const target = parseFloat(el.dataset.target);
-          if (isNaN(target)) return;
-          const suffix = el.dataset.suffix || '';
-          const decimals = parseInt(el.dataset.decimals || '0', 10);
-          const duration = 1200 + i * 80;
-          const delay = 150 + i * 80;
-
-          animateValue(el, target, suffix, decimals, duration, delay);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  statContainers.forEach(container => observer.observe(container));
+  // 2. Lower section counters are rendered immediately to eliminate scroll frame-drops and repaint lag
+  const sectionCounters = document.querySelectorAll('.section .stat-value[data-target]');
+  sectionCounters.forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    if (isNaN(target)) return;
+    const suffix = el.dataset.suffix || '';
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    el.textContent = target.toFixed(decimals) + suffix;
+  });
 }
 
 // ============================================================================
@@ -1092,28 +1088,42 @@ function initMobileMenu() {
 }
 
 // ============================================================================
-// 8. SCROLLSPY ACTIVE NAV TRACKING
+// 8. SCROLLSPY ACTIVE NAV TRACKING (Off-Main-Thread IntersectionObserver)
 // ============================================================================
 function initScrollSpy() {
-  const sections = document.querySelectorAll('section[id], body[id]');
+  const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  if (!sections.length || !navLinks.length) return;
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPos = window.scrollY + 140;
-
-    sections.forEach(sec => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        current = sec.getAttribute('id');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
       }
     });
+  }, {
+    rootMargin: '-20% 0px -60% 0px'
+  });
 
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-  }, { passive: true });
+  sections.forEach(sec => observer.observe(sec));
+
+  // Observe hero viewport for the Home active pill
+  const hero = document.querySelector('.hero-viewport');
+  if (hero) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#top');
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    heroObserver.observe(hero);
+  }
 }
 
 // ============================================================================
