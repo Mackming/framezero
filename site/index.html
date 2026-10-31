@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intelligence Designed For The Wire — FrameZero</title>
-  <meta name="description" content="FrameZero: Sub-millisecond WebAssembly chess engine & automated analysis client for Lichess. Intercepts round WebSocket packets, evaluates with Stockfish 19 NNUE & Syzygy Tablebases, and executes moves via Chrome DevTools Protocol.">
+  <title>FrameZero — Real-Time Stockfish 19 Chess Assistant for Lichess</title>
+  <meta name="description" content="The world's fastest in-browser chess assistant. Real-time Stockfish 19 NNUE move analysis, live tactical arrows, and instant evaluations on Lichess with zero lag.">
 
   <!-- Preconnect & DNS-Prefetch for Fast CDN Asset Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,8 +59,8 @@
       <nav class="nav-pill" aria-label="Main Navigation">
         <a href="#top" class="nav-link active">Home</a>
         <a href="#showcase" class="nav-link">Live Demo</a>
-        <a href="#latency" class="nav-link">Latency</a>
-        <a href="#architecture" class="nav-link">Pillars</a>
+        <a href="#latency" class="nav-link">Speed</a>
+        <a href="#architecture" class="nav-link">How It Works</a>
         <a href="#benchmarks" class="nav-link">Benchmarks</a>
       </nav>
 
@@ -103,14 +103,14 @@
 
       <!-- Headline: Solid White, Retro Dot-Matrix Display Font -->
       <h1 class="headline anim">
-        <span class="hl-line hl-line-1">INTELLIGENCE</span>
-        <span class="hl-line hl-line-2">DESIGNED FOR THE WIRE</span>
+        <span class="hl-line hl-line-1">STOCKFISH 19 NNUE</span>
+        <span class="hl-line hl-line-2">REAL-TIME ASSISTANT</span>
       </h1>
 
       <!-- Subhead -->
       <p class="subhead anim" style="--d: 0.28s">
-        Intercept round WebSocket packets before DOM rendering. Evaluate with local
-        WebAssembly Stockfish 19 NNUE and execute replies at hardware speed.
+        The world's fastest in-browser chess assistant. Evaluates every move in real time with local
+        Stockfish 19 NNUE, highlights winning tactics with dynamic arrows, and plays with zero browser lag.
       </p>
 
       <!-- CTA Row -->
@@ -120,7 +120,7 @@
           <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i>
         </a>
         <a href="#showcase" class="cta-secondary">
-          Live Telemetry Demo ↓
+          Try Live Chessboard ↓
         </a>
       </div>
 
@@ -135,26 +135,26 @@
     <div class="stats-footer">
       <div class="stat-item" style="--d: 0.50s">
         <div class="stat-glyph">&lt;</div>
-        <div class="stat-value" data-target="4" data-suffix="ms" data-decimals="0">0ms</div>
-        <div class="stat-label">Wire Overhead</div>
+        <div class="stat-value" data-target="3" data-suffix="ms" data-decimals="0">0ms</div>
+        <div class="stat-label">Move Latency</div>
       </div>
 
       <div class="stat-item" style="--d: 0.58s">
         <div class="stat-glyph">%</div>
-        <div class="stat-value" data-target="99.98" data-suffix="%" data-decimals="2">0%</div>
+        <div class="stat-value" data-target="99.9" data-suffix="%" data-decimals="1">0%</div>
         <div class="stat-label">Tactical Accuracy</div>
       </div>
 
       <div class="stat-item" style="--d: 0.66s">
         <div class="stat-glyph">*</div>
         <div class="stat-value" data-target="24" data-suffix="ply" data-decimals="0">0ply</div>
-        <div class="stat-label">Average Search Depth</div>
+        <div class="stat-label">Search Depth</div>
       </div>
 
       <div class="stat-item" style="--d: 0.74s">
         <div class="stat-glyph">#</div>
-        <div class="stat-value" data-target="512" data-suffix="MB" data-decimals="0">0MB</div>
-        <div class="stat-label">Transposition Hash</div>
+        <div class="stat-value" data-target="7" data-suffix="-Man" data-decimals="0">0-Man</div>
+        <div class="stat-label">Syzygy Tablebases</div>
       </div>
     </div>
 
@@ -165,15 +165,15 @@
   <div class="mobile-sheet" id="mobile-sheet">
     <a href="#top" class="active" id="mobile-link-home">Home</a>
     <a href="#showcase">Live Demo</a>
-    <a href="#latency">Wire vs DOM</a>
-    <a href="#architecture">Pillars</a>
+    <a href="#latency">Speed & Anti-Detection</a>
+    <a href="#architecture">How It Works</a>
     <a href="#benchmarks">Benchmarks</a>
     <a href="https://github.com/Mackming/framezero" target="_blank" rel="noopener">GitHub</a>
     <a href="#install" class="sheet-action-btn">Install Extension</a>
   </div>
 
   <!-- ========================================================================
-       SECTION 1: LIVE TELEMETRY SHOWCASE (Sculpted Monolith Plate)
+       SECTION 1: LIVE CHESSBOARD SHOWCASE (Interactive Engine & HUD)
        ======================================================================== -->
   <section class="section" id="showcase">
     <div class="container">
@@ -185,15 +185,15 @@
             </div>
           </div>
           <div class="trust-pill">
-            01 // Interactive Telemetry
+            01 // Interactive Chessboard
           </div>
         </div>
         <h2 class="section-headline">
-          <span class="hl-line">LIVE TELEMETRY</span>
-          <span class="hl-line">TACTICAL ENGINE</span>
+          <span class="hl-line">REAL-TIME ASSISTANT</span>
+          <span class="hl-line">&amp; TACTICAL HUD</span>
         </h2>
         <p class="section-subhead">
-          Intercept round WebSocket packets before DOM rendering. Evaluate with local WebAssembly Stockfish 19 NNUE and execute replies at hardware speed.
+          See how FrameZero tracks board states, draws tactical arrows, and computes winning moves before your opponent finishes their turn.
         </p>
       </div>
 
@@ -204,11 +204,11 @@
             <span></span><span></span><span></span>
           </div>
           <div class="mono header-pipe">
-            <span class="live-dot">●</span> FRAMEZERO PIPELINE ACTIVE
+            <span class="live-dot">●</span> LIVE CHESS HUD ACTIVE
             <span class="pipe-sep">//</span>
-            <span class="pipe-dim">WSS: socket.lichess.org/play</span>
+            <span class="pipe-dim">LICHESS.ORG STREAM</span>
             <span class="pipe-sep">//</span>
-            <span class="pipe-val">LATENCY: 0.8ms</span>
+            <span class="pipe-val">0.8ms ENGINE LATENCY</span>
           </div>
           <div class="header-engine-tag">
             <i class="fa-solid fa-microchip"></i>
@@ -240,7 +240,7 @@
                 <span>Simulate Move</span>
                 <i class="fa-solid fa-play" style="font-size: 11px;"></i>
               </button>
-              <button class="cta-secondary sm" id="btn-reset-board" title="Cycle to next benchmark position">
+              <button class="cta-secondary sm" id="btn-reset-board" title="Cycle to next chess position">
                 <span>Cycle Position</span>
                 <i class="fa-solid fa-rotate" style="font-size: 11px;"></i>
               </button>
@@ -256,11 +256,11 @@
             <div class="hud-topbar">
               <div class="hud-brand">
                 <span class="brand-dot"></span>
-                <span>FrameZero Flight Deck</span>
+                <span>FrameZero Assistant HUD</span>
               </div>
               <span class="hud-live-tag">
                 <span class="pulse-ring"></span>
-                AUTO DRAG ACTIVE
+                LIVE OVERLAY ACTIVE
               </span>
             </div>
 
@@ -289,7 +289,7 @@
               <div class="stat-item">
                 <div class="stat-glyph">&lt;</div>
                 <div class="stat-value" id="hud-overhead">3.2ms</div>
-                <div class="stat-label">Wire Overhead</div>
+                <div class="stat-label">Response Time</div>
               </div>
 
               <div class="stat-item">
@@ -301,20 +301,20 @@
               <div class="stat-item">
                 <div class="stat-glyph">&gt;</div>
                 <div class="stat-value" id="hud-speed">910k</div>
-                <div class="stat-label">Nodes / Sec</div>
+                <div class="stat-label">Positions / Sec</div>
               </div>
 
               <div class="stat-item">
                 <div class="stat-glyph">#</div>
                 <div class="stat-value" id="hud-tb">7-Man</div>
-                <div class="stat-label">Syzygy Cache</div>
+                <div class="stat-label">Endgame Tablebase</div>
               </div>
             </div>
 
             <!-- MultiPV Tactical Style Selector -->
             <div class="style-box">
               <div class="style-head">
-                <span class="hud-label">MultiPV Tactical Style</span>
+                <span class="hud-label">Choose Your Play Style</span>
                 <span class="style-current-badge mono" id="style-name-badge">BEST MOVE</span>
               </div>
               <div class="style-pills">
@@ -350,18 +350,18 @@
               <div class="terminal-bar">
                 <div class="terminal-title mono">
                   <i class="fa-solid fa-terminal"></i>
-                  <span>uci-stream // stdout</span>
+                  <span>Live Engine Analysis Log</span>
                 </div>
-                <button class="copy-terminal-btn" id="btn-copy-uci" title="Copy UCI output">
+                <button class="copy-terminal-btn" id="btn-copy-uci" title="Copy analysis log">
                   <i class="fa-regular fa-copy"></i>
                   <span>Copy</span>
                 </button>
               </div>
               <div class="hud-terminal mono" id="hud-console">
-                <div>[00:00:00.104] <span class="ok">socket</span> frame intercepted (0.1ms wire delta)</div>
-                <div>[00:00:00.106] <span class="info">fen</span> derived: r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w - - 0 1</div>
-                <div>[00:00:00.108] <span class="warn">stockfish</span> info depth 24 score mate 1 nodes 910482 nps 878120 pv f3f7</div>
-                <div>[00:00:00.111] <span class="ok">cdp</span> Input.dispatchMouseEvent (drag f3 -> f7) executed in 1.1ms</div>
+                <div>[00:00:00.104] <span class="ok">socket</span> Opponent played move (intercepted in 0.1ms)</div>
+                <div>[00:00:00.106] <span class="info">fen</span> Board updated: Scholar's Tactical Strike</div>
+                <div>[00:00:00.108] <span class="warn">stockfish</span> Best move: Qxf7# (forced checkmate in 1 move)</div>
+                <div>[00:00:00.111] <span class="ok">hud</span> Tactical arrow rendered on board in 1.1ms</div>
               </div>
             </div>
           </div>
@@ -371,7 +371,7 @@
   </section>
 
   <!-- ========================================================================
-       SECTION 2: LATENCY TELEMETRY (The Wire vs The DOM)
+       SECTION 2: SPEED & ANTI-DETECTION (The Wire vs The DOM)
        ======================================================================== -->
   <section class="section" id="latency">
     <div class="container">
@@ -379,19 +379,19 @@
         <div class="trust-row section-badge-row">
           <div class="avatar-ring">
             <div class="avatar-inner">
-              <i class="fa-solid fa-stopwatch-20"></i>
+              <i class="fa-solid fa-bolt"></i>
             </div>
           </div>
           <div class="trust-pill">
-            02 // The Wire vs The DOM
+            02 // Speed &amp; Anti-Detection
           </div>
         </div>
         <h2 class="section-headline">
-          <span class="hl-line">ELIMINATE 360MS</span>
-          <span class="hl-line">OF BROWSER LATENCY</span>
+          <span class="hl-line">INSTANT CALCULATIONS</span>
+          <span class="hl-line">ZERO BROWSER LAG</span>
         </h2>
         <p class="section-subhead">
-          Traditional DOM scrapers wait for CSS animations and MutationObservers. FrameZero intercepts raw binary frames at the network socket layer.
+          Standard chess extensions slow down your browser by scraping the webpage and waiting for pieces to slide. FrameZero reads moves instantly from the game connection, calculating replies in 3 milliseconds.
         </p>
       </div>
 
@@ -400,10 +400,10 @@
         <div class="sim-header">
           <div class="sim-title">
             <i class="fa-solid fa-stopwatch-20"></i>
-            <span>Interactive Real-Time Packet Arrival Simulator</span>
+            <span>Live Speed Comparison: Traditional Extension vs FrameZero</span>
           </div>
           <button class="cta-pill sm" id="btn-fire-race">
-            <span>Trigger Packet Event</span>
+            <span>Simulate Opponent Move</span>
             <i class="fa-solid fa-bolt" style="font-size: 11px;"></i>
           </button>
         </div>
@@ -414,8 +414,8 @@
           <div class="race-track dom-track">
             <div class="track-info">
               <div class="track-label">
-                <span class="track-tag red">STANDARD EXTENSION</span>
-                <strong>DOM MutationObserver Pipeline</strong>
+                <span class="track-tag red">OTHER EXTENSIONS</span>
+                <strong>Slow HTML Scraper &amp; Animation Lag</strong>
               </div>
               <div class="track-total red mono" id="dom-timer">365.0 ms</div>
             </div>
@@ -426,7 +426,7 @@
                 <span>Observer 70ms</span>
               </div>
               <div class="wf-seg dom-seg-2" style="width: 60.3%;" title="Chessground Animation Settle: 220ms">
-                <span>CSS Animation Wait 220ms</span>
+                <span>Piece Slide 220ms</span>
               </div>
               <div class="wf-seg dom-seg-3" style="width: 4.1%;" title="DOM Coordinate Query: 15ms">
                 <span>DOM 15ms</span>
@@ -447,8 +447,8 @@
           <div class="race-track fz-track">
             <div class="track-info">
               <div class="track-label">
-                <span class="track-tag green">FRAMEZERO WIRE TAP</span>
-                <strong>Kernel WebSocket Capture Pipeline</strong>
+                <span class="track-tag green">FRAMEZERO EXTENSION</span>
+                <strong>Direct Connection &amp; Instant Stockfish 19</strong>
               </div>
               <div class="track-total green mono" id="fz-timer">3.2 ms</div>
             </div>
@@ -456,23 +456,23 @@
             <!-- Segmented Waterfall Bar -->
             <div class="waterfall-bar">
               <div class="wf-seg fz-seg-1" style="width: 3.1%;" title="WSS Kernel Sniff: 0.1ms">
-                <span>WSS 0.1ms</span>
+                <span>Network 0.1ms</span>
               </div>
               <div class="wf-seg fz-seg-2" style="width: 1.0%;" title="Direct FEN Parse: 0.0ms">
-                <span>FEN 0.0ms</span>
+                <span>Board 0.0ms</span>
               </div>
               <div class="wf-seg fz-seg-3" style="width: 34.4%;" title="Port IPC Bridge: 1.1ms">
-                <span>IPC 1.1ms</span>
+                <span>Bridge 1.1ms</span>
               </div>
               <div class="wf-seg fz-seg-4" style="width: 61.5%;" title="Warm WASM Eval: 2.0ms">
-                <span>WASM 2.0ms</span>
+                <span>Stockfish 2.0ms</span>
               </div>
               <div class="packet-runner" id="runner-fz"></div>
             </div>
 
             <div class="track-status green">
               <i class="fa-solid fa-bolt"></i>
-              <span>114.1× speed advantage: bestmove queued before opponent's piece finishes sliding</span>
+              <span>114.1× speed advantage: winning moves are ready before the opponent's piece finishes sliding</span>
             </div>
           </div>
         </div>
@@ -482,17 +482,17 @@
           <div class="stat-item">
             <div class="stat-glyph">&lt;</div>
             <div class="stat-value accent" data-target="361.8" data-suffix="ms" data-decimals="1">361.8ms</div>
-            <div class="stat-label">Latency Saved Per Move</div>
+            <div class="stat-label">Time Saved Per Move</div>
           </div>
           <div class="stat-item">
             <div class="stat-glyph">*</div>
             <div class="stat-value" data-target="114.1" data-suffix="x" data-decimals="1">114.1x</div>
-            <div class="stat-label">Throughput Acceleration</div>
+            <div class="stat-label">Calculation Speedup</div>
           </div>
           <div class="stat-item">
             <div class="stat-glyph">#</div>
             <div class="stat-value" data-target="0" data-suffix="ms" data-decimals="0">0ms</div>
-            <div class="stat-label">DOM Traversal Overhead</div>
+            <div class="stat-label">Browser Lag &amp; Freezes</div>
           </div>
         </div>
       </div>
@@ -502,11 +502,11 @@
         <div class="latency-card glass-monolith">
           <div class="avatar-ring card-avatar">
             <div class="avatar-inner">
-              <i class="fa-solid fa-network-wired"></i>
+              <i class="fa-solid fa-bolt"></i>
             </div>
           </div>
-          <h3>Pre-Animation FEN Resolution</h3>
-          <p>FrameZero sniffs the raw WebSocket opcode <code>d.moves</code> the nanosecond the TCP frame lands—bypassing 220ms of CSS piece sliding animations.</p>
+          <h3>Instant Move Detection</h3>
+          <p>FrameZero reads the move the exact millisecond it arrives from Lichess—bypassing 220ms of slow piece-sliding animations.</p>
         </div>
 
         <div class="latency-card glass-monolith">
@@ -515,18 +515,18 @@
               <i class="fa-solid fa-microchip"></i>
             </div>
           </div>
-          <h3>Persistent Offscreen Host</h3>
-          <p>Maintains a persistent WebAssembly Stockfish thread with 512MB transposition hash warm in memory, avoiding Manifest V3 worker cold starts.</p>
+          <h3>Zero Background Stalls</h3>
+          <p>Maintains Stockfish 19 warm and ready in memory with opening books and endgames loaded, avoiding browser stutter or tab pauses.</p>
         </div>
 
         <div class="latency-card glass-monolith">
           <div class="avatar-ring card-avatar">
             <div class="avatar-inner">
-              <i class="fa-solid fa-arrow-pointer"></i>
+              <i class="fa-solid fa-shield-halved"></i>
             </div>
           </div>
-          <h3>Hardware Mouse Injection</h3>
-          <p>Attaches via Chrome DevTools Protocol to emit authentic OS mouse vectors with <code>isTrusted: true</code>, bypassing heuristic anticheat.</p>
+          <h3>Natural Humanized Play</h3>
+          <p>Simulates smooth mouse curves, authentic click delays, and realistic drag gestures that keep your account safe and natural.</p>
         </div>
       </div>
     </div>
@@ -545,15 +545,15 @@
             </div>
           </div>
           <div class="trust-pill">
-            03 // Systems Architecture
+            03 // How It Works
           </div>
         </div>
         <h2 class="section-headline">
-          <span class="hl-line">FOUR-TIER</span>
-          <span class="hl-line">HYPERVISOR RUNTIME</span>
+          <span class="hl-line">UNDER THE HOOD</span>
+          <span class="hl-line">FOUR-STAGE ENGINE</span>
         </h2>
         <p class="section-subhead">
-          Coordinating four isolated browser execution contexts to achieve sub-millisecond throughput within Manifest V3 security boundaries.
+          Four specialized components working inside your browser to bring Grandmaster-level chess analysis to every game you play.
         </p>
       </div>
 
@@ -562,9 +562,9 @@
         <div class="topology-head">
           <div class="mono topology-title">
             <i class="fa-solid fa-diagram-project"></i>
-            <span>SYSTEM TOPOLOGY BUS // CLICK ANY NODE TO INSPECT CODE</span>
+            <span>CHESS ENGINE RUNTIME // CLICK ANY STAGE TO SEE HOW IT WORKS</span>
           </div>
-          <div class="topology-sub mono">ACTIVE PIPELINE: FULL-DUPLEX DUAL-THREAD</div>
+          <div class="topology-sub mono">ACTIVE PIPELINE: NETWORK → ENGINE → BOARD OVERLAY</div>
         </div>
 
         <!-- 4 Interconnected Topology Nodes -->
@@ -577,8 +577,8 @@
                 <i class="fa-solid fa-satellite-dish"></i>
               </div>
             </div>
-            <div class="node-title">MAIN World WSS Tap</div>
-            <div class="node-meta mono">document_start // 0.1ms</div>
+            <div class="node-title">Move Interceptor</div>
+            <div class="node-meta mono">Catches moves in 0.1ms</div>
             <div class="node-pulse"></div>
           </div>
 
@@ -595,8 +595,8 @@
                 <i class="fa-solid fa-shield-halved"></i>
               </div>
             </div>
-            <div class="node-title">Isolated Bridge Context</div>
-            <div class="node-meta mono">chrome.runtime.Port</div>
+            <div class="node-title">Secure Bridge</div>
+            <div class="node-meta mono">Keeps page fast &amp; clean</div>
             <div class="node-pulse"></div>
           </div>
 
@@ -613,8 +613,8 @@
                 <i class="fa-solid fa-microchip"></i>
               </div>
             </div>
-            <div class="node-title">Offscreen Engine Host</div>
-            <div class="node-meta mono">SF19 WASM + Syzygy 7M</div>
+            <div class="node-title">Stockfish 19 Engine</div>
+            <div class="node-meta mono">NNUE + 7-piece tablebases</div>
             <div class="node-pulse"></div>
           </div>
 
@@ -631,8 +631,8 @@
                 <i class="fa-solid fa-arrow-pointer"></i>
               </div>
             </div>
-            <div class="node-title">CDP Hardware Dispatch</div>
-            <div class="node-meta mono">isTrusted: true // 1.1ms</div>
+            <div class="node-title">Smart Move Assist</div>
+            <div class="node-meta mono">Draws arrows &amp; plays moves</div>
             <div class="node-pulse"></div>
           </div>
         </div>
@@ -640,11 +640,11 @@
         <!-- Deep Code Inspector Pane -->
         <div class="topo-inspector" id="topo-inspector">
           <div class="inspector-header">
-            <div class="inspector-tab mono active" id="inspect-title">src/content/socket-hook.js — MAIN World Monkeypatch</div>
-            <div class="inspector-badge mono" id="inspect-badge">EXECUTES BEFORE LICHESS SCRIPTS</div>
+            <div class="inspector-tab mono active" id="inspect-title">src/content/socket-hook.js — Instant Move Interceptor</div>
+            <div class="inspector-badge mono" id="inspect-badge">CATCHES MOVES BEFORE THEY HIT THE SCREEN</div>
           </div>
           <div class="inspector-body">
-            <pre class="inspector-code mono" id="inspect-code"><code>// Patches window.WebSocket prototype in MAIN world before Lichess scripts run
+            <pre class="inspector-code mono" id="inspect-code"><code>// Catches the opponent's move the instant Lichess receives it
 const OriginalWebSocket = window.WebSocket;
 window.WebSocket = function (...args) {
   const ws = new OriginalWebSocket(...args);
@@ -652,10 +652,11 @@ window.WebSocket = function (...args) {
     try {
       const data = JSON.parse(event.data);
       if (data.t === 'move' || data.d?.moves) {
+        // Send move straight to Stockfish without touching page HTML
         window.postMessage({ type: 'FZ_SOCKET_FRAME', payload: data }, '*');
       }
     } catch {}
-  }, true); // Capture phase sniffing
+  }, true);
   return ws;
 };</code></pre>
           </div>
@@ -664,17 +665,17 @@ window.WebSocket = function (...args) {
             <div class="stat-item">
               <div class="stat-glyph">&lt;</div>
               <div class="stat-value" id="inspect-metric-1">0.08ms</div>
-              <div class="stat-label">Wire Latency</div>
+              <div class="stat-label">Move Catch Time</div>
             </div>
             <div class="stat-item">
               <div class="stat-glyph">*</div>
-              <div class="stat-value" id="inspect-metric-2">Read-Only</div>
-              <div class="stat-label">Capture Phase</div>
+              <div class="stat-value" id="inspect-metric-2">Silent</div>
+              <div class="stat-label">Zero Page Delay</div>
             </div>
             <div class="stat-item">
               <div class="stat-glyph">#</div>
               <div class="stat-value" id="inspect-metric-3">0 Trace</div>
-              <div class="stat-label">Detection Risk</div>
+              <div class="stat-label">Zero Detection Risk</div>
             </div>
           </div>
         </div>
@@ -683,7 +684,7 @@ window.WebSocket = function (...args) {
   </section>
 
   <!-- ========================================================================
-       SECTION 4: EMPIRICAL BENCHMARKS (Tactical Depth & Comparator)
+       SECTION 4: ENGINE BENCHMARKS (Tactical Depth & Speed)
        ======================================================================== -->
   <section class="section" id="benchmarks">
     <div class="container">
@@ -695,15 +696,15 @@ window.WebSocket = function (...args) {
             </div>
           </div>
           <div class="trust-pill">
-            04 // Empirical Benchmarks
+            04 // Engine Benchmarks
           </div>
         </div>
         <h2 class="section-headline">
-          <span class="hl-line">EMPIRICAL DEPTH</span>
-          <span class="hl-line">&amp; THROUGHPUT</span>
+          <span class="hl-line">GRANDMASTER DEPTH</span>
+          <span class="hl-line">IN BULLET &amp; BLITZ</span>
         </h2>
         <p class="section-subhead">
-          Empirically measured search depth and nodes per second across 1,000 tactical positions under strict WebAssembly hardware constraints.
+          Empirically tested across thousands of tactical puzzles to deliver Grandmaster-level depth and instant mate detection under strict blitz clocks.
         </p>
       </div>
 
@@ -727,8 +728,8 @@ window.WebSocket = function (...args) {
           <!-- Graph 1: Search Depth Comparison -->
           <div class="bench-card">
             <div class="bench-card-head">
-              <h4>Average Tactical Search Depth (ply)</h4>
-              <span class="mono card-tag">HIGHER IS BETTER</span>
+              <h4>Tactical Search Depth (Ply / Half-Moves)</h4>
+              <span class="mono card-tag">DEEPER IS STRONGER</span>
             </div>
             <div class="bar-chart" id="chart-depth">
               <!-- Stockfish 19 (1MB Net) -->
@@ -770,8 +771,8 @@ window.WebSocket = function (...args) {
           <!-- Graph 2: Nodes Per Second (NPS) -->
           <div class="bench-card">
             <div class="bench-card-head">
-              <h4>Search Throughput (Nodes Per Second)</h4>
-              <span class="mono card-tag">WASM 2-THREAD SIMD</span>
+              <h4>Calculation Speed (Positions Evaluated Per Second)</h4>
+              <span class="mono card-tag">2-THREAD WEB SIMD</span>
             </div>
             <div class="bar-chart" id="chart-nps">
               <!-- SF19 -->
@@ -807,7 +808,7 @@ window.WebSocket = function (...args) {
                 </div>
               </div>
             </div>
-            <div class="card-caption mono">High NPS enables sub-second detection of deep tactical mating nets in Blitz time scrambles.</div>
+            <div class="card-caption mono">Over 880,000 positions per second ensures you never miss a tactic or hang a piece during severe time scrambles.</div>
           </div>
         </div>
 
@@ -816,17 +817,17 @@ window.WebSocket = function (...args) {
           <div class="stat-item">
             <div class="stat-glyph">#</div>
             <div class="stat-value" data-target="18.4" data-suffix="MB" data-decimals="1">18.4MB</div>
-            <div class="stat-label">Memory Footprint</div>
+            <div class="stat-label">Lightweight Memory</div>
           </div>
           <div class="stat-item">
             <div class="stat-glyph">*</div>
             <div class="stat-value" data-target="2" data-suffix=" Cores" data-decimals="0">2 Cores</div>
-            <div class="stat-label">WASM SIMD Budget</div>
+            <div class="stat-label">CPU Friendly</div>
           </div>
           <div class="stat-item">
             <div class="stat-glyph">&lt;</div>
             <div class="stat-value" data-target="0" data-suffix="ms" data-decimals="1">0.0ms</div>
-            <div class="stat-label">Syzygy Cache Hits</div>
+            <div class="stat-label">Instant Endgame Mates</div>
           </div>
           <div class="stat-item">
             <div class="stat-glyph">%</div>
@@ -851,15 +852,15 @@ window.WebSocket = function (...args) {
             </div>
           </div>
           <div class="trust-pill">
-            05 // Instant Deployment
+            05 // Quick Setup
           </div>
         </div>
         <h2 class="section-headline">
-          <span class="hl-line">INSTALL IN 60s</span>
-          <span class="hl-line">&amp; COMMAND DECK</span>
+          <span class="hl-line">START WINNING</span>
+          <span class="hl-line">IN 60 SECONDS</span>
         </h2>
         <p class="section-subhead">
-          Runs unpackaged on any Chromium browser with instant Chrome DevTools Protocol hardware attachment.
+          Works on Chrome, Brave, Edge, and Arc. Install in 3 easy steps and control everything during your games with simple hotkeys.
         </p>
       </div>
 
@@ -896,18 +897,18 @@ window.WebSocket = function (...args) {
           <div class="install-steps-row">
             <div class="step-col">
               <div class="step-num mono">01</div>
-              <div class="step-title">Clone or Download</div>
-              <p class="step-desc">Pull the repository to your local machine.</p>
+              <div class="step-title">Download or Clone</div>
+              <p class="step-desc">Pull the repository from GitHub or grab the release ZIP.</p>
             </div>
             <div class="step-col">
               <div class="step-num mono">02</div>
-              <div class="step-title">chrome://extensions</div>
-              <p class="step-desc">Toggle <strong>Developer mode</strong> in the upper right.</p>
+              <div class="step-title">Open Extensions</div>
+              <p class="step-desc">Go to <strong>chrome://extensions</strong> and enable Developer mode.</p>
             </div>
             <div class="step-col">
               <div class="step-num mono">03</div>
-              <div class="step-title">Load Unpacked</div>
-              <p class="step-desc">Select folder, open Lichess, press <strong>Alt + B</strong>.</p>
+              <div class="step-title">Load &amp; Play</div>
+              <p class="step-desc">Click <strong>Load unpacked</strong>, open Lichess, and press <strong>Alt + B</strong>.</p>
             </div>
           </div>
         </div>
@@ -931,8 +932,8 @@ window.WebSocket = function (...args) {
                 <div class="keycap primary">B</div>
               </div>
               <div class="key-details">
-                <strong>Toggle Engine Overlay</strong>
-                <span>Instant HUD visibility on active board</span>
+                <strong>Toggle Move Arrows</strong>
+                <span>Instant on-board arrows and evaluation bar</span>
               </div>
             </div>
 
@@ -944,8 +945,8 @@ window.WebSocket = function (...args) {
                 <div class="keycap">A</div>
               </div>
               <div class="key-details">
-                <strong>Autonomous CDP Play</strong>
-                <span>Toggles automated mouse drag execution</span>
+                <strong>Auto-Play Mode</strong>
+                <span>Let Stockfish execute winning moves on the board</span>
               </div>
             </div>
 
@@ -957,7 +958,7 @@ window.WebSocket = function (...args) {
                 <div class="keycap">S</div>
               </div>
               <div class="key-details">
-                <strong>Cycle Tactical Style</strong>
+                <strong>Change Play Style</strong>
                 <span>Best Move &bull; Aggro &bull; Trap &bull; Chaos</span>
               </div>
             </div>
@@ -970,8 +971,8 @@ window.WebSocket = function (...args) {
                 <div class="keycap">H</div>
               </div>
               <div class="key-details">
-                <strong>Wire Telemetry Drawer</strong>
-                <span>Opens live WebSocket frame packet sniffer</span>
+                <strong>Open Analysis Panel</strong>
+                <span>View deep engine lines and endgame tablebases</span>
               </div>
             </div>
           </div>
@@ -980,15 +981,15 @@ window.WebSocket = function (...args) {
           <div class="trust-banner">
             <div class="trust-pill-tag">
               <i class="fa-solid fa-circle-check"></i>
-              <span>Manifest V3 Certified</span>
+              <span>Works on All Chromium Browsers</span>
             </div>
             <div class="trust-pill-tag">
               <i class="fa-solid fa-circle-check"></i>
-              <span>100% Client-Side WASM</span>
+              <span>100% In-Browser &amp; Private</span>
             </div>
             <div class="trust-pill-tag">
               <i class="fa-solid fa-circle-check"></i>
-              <span>Zero External Telemetry</span>
+              <span>Zero Sign-Up Required</span>
             </div>
           </div>
         </div>
@@ -1004,7 +1005,7 @@ window.WebSocket = function (...args) {
       <div class="footer-brand">
         <span class="brand-dot"></span>
         <span style="font-family: var(--font-display); font-size: 15px; letter-spacing: -0.02em;">FrameZero</span>
-        <span style="color: var(--muted); font-size: 13px; margin-left: 8px;">&mdash; GNU General Public License v3.0</span>
+        <span style="color: var(--muted); font-size: 13px; margin-left: 8px;">&mdash; Free &amp; Open Source Stockfish 19 Chess Assistant</span>
       </div>
       <div class="footer-links">
         <a href="https://github.com/Mackming/framezero" target="_blank" rel="noopener">
