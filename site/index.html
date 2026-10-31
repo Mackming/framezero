@@ -26,7 +26,7 @@
        ======================================================================== -->
   <section class="hero-viewport">
 
-    <!-- Video Background -->
+    <!-- Video Background with Gradient Fade into Pure Black -->
     <div class="bg-video-wrap">
       <video class="bg-video" autoplay muted loop playsinline>
         <source
@@ -37,7 +37,7 @@
       <div class="bg-overlay"></div>
     </div>
 
-    <!-- 1) Floating Header -->
+    <!-- Floating Header -->
     <header class="header">
       <!-- Circular Logo Button -->
       <a href="#top" class="logo-btn" aria-label="FrameZero Home" title="FrameZero">
@@ -66,7 +66,7 @@
       </button>
     </header>
 
-    <!-- 2) Hero Center -->
+    <!-- Hero Center -->
     <div class="hero">
       <!-- Trust Row: Overlapping Avatar Rings + Pill -->
       <div class="trust-row anim" style="--d: 0.05s">
@@ -120,7 +120,7 @@
       </a>
     </div>
 
-    <!-- 3) Stats Footer (Bottom, shrink 0) -->
+    <!-- Stats Footer (Bottom, shrink 0) -->
     <div class="stats-footer">
       <div class="stat-item" style="--d: 0.50s">
         <div class="stat-glyph">&lt;</div>
@@ -162,85 +162,89 @@
   </div>
 
   <!-- ========================================================================
-       INTERACTIVE SHOWCASE (Live Chessboard + Injected HUD)
+       SECTION 1: LIVE TELEMETRY SHOWCASE (Sculpted Monolith Plate)
        ======================================================================== -->
-  <section class="showcase-section" id="showcase">
+  <section class="section" id="showcase">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker">Interactive Environment</div>
-        <h2 class="section-title">Live Telemetry &amp; Vector Overlay</h2>
-        <p class="section-desc">Experience how FrameZero reads board states and draws vectors before Lichess animations settle.</p>
+        <div class="section-badge"><span class="dot">●</span> 01 // INTERACTIVE ENVIRONMENT</div>
+        <h2 class="section-title">LIVE TELEMETRY &amp; OVERLAY</h2>
+        <p class="section-desc">Experience how FrameZero computes board positions and renders dynamic SVG vectors before Lichess animations settle.</p>
       </div>
 
-      <div class="showcase-card">
-        <div class="showcase-header">
+      <div class="showcase-plate">
+        <div class="plate-header">
           <div class="window-dots">
             <span></span><span></span><span></span>
           </div>
-          <div class="mono">framezero-live-telemetry // lichess.org session preview</div>
-          <div><span style="color: var(--accent);">●</span> Live Simulated Round</div>
+          <div class="mono">framezero-telemetry // lichess.org active round</div>
+          <div><span style="color: var(--accent);">●</span> Live Simulated Pipeline</div>
         </div>
 
-        <div class="showcase-body">
-          <!-- Left: Chessboard -->
-          <div class="board-stage">
+        <div class="showcase-grid">
+          <!-- Chessboard -->
+          <div class="board-zone">
             <div class="board-container" id="board-container">
               <div class="chessboard" id="chessboard">
-                <!-- Injected by main.js -->
+                <!-- Squares rendered by main.js -->
               </div>
               <svg class="board-svg-overlay" viewBox="0 0 8 8" id="svg-overlay" xmlns="http://www.w3.org/2000/svg">
-                <!-- Directed vector drawn by main.js -->
+                <!-- Vectors rendered by main.js -->
               </svg>
             </div>
 
-            <div class="board-controls">
+            <div class="board-actions">
               <button id="btn-play-move">Simulate Opponent Move</button>
               <button id="btn-reset-board">Cycle Position</button>
             </div>
           </div>
 
-          <!-- Right: FrameZero HUD Panel -->
-          <div class="panel-stage">
-            <div class="hud-header">
-              <div class="hud-title">
+          <!-- HUD Terminal Area -->
+          <div class="hud-zone">
+            <div class="hud-topbar">
+              <div class="hud-brand">
                 <span class="brand-dot"></span>
                 <span>FrameZero</span>
               </div>
-              <div class="hud-switch">AUTO ON</div>
+              <span class="hud-live-tag">AUTO ON</span>
             </div>
 
-            <div class="hud-stat-box">
-              <div class="hud-stat-label">Stockfish 19 Evaluation</div>
-              <div class="hud-eval-value" id="hud-eval">#M1</div>
-              <div class="hud-eval-bar">
-                <div class="hud-eval-fill" id="hud-eval-fill"></div>
+            <!-- Eval Card -->
+            <div class="hud-eval-box">
+              <div class="hud-label">Stockfish 19 Evaluation</div>
+              <div class="hud-eval-num" id="hud-eval">#M1</div>
+              <div class="hud-eval-track">
+                <div class="hud-eval-bar" id="hud-eval-fill"></div>
               </div>
             </div>
 
-            <div class="hud-telemetry">
-              <div class="hud-tele-item">
-                <div class="hud-tele-k">WIRE OVERHEAD</div>
-                <div class="hud-tele-v green" id="hud-overhead">3.2 ms</div>
+            <!-- Telemetry Stats -->
+            <div class="hud-metrics">
+              <div class="metric-pill">
+                <div class="metric-k">WIRE OVERHEAD</div>
+                <div class="metric-v accent" id="hud-overhead">3.2 ms</div>
               </div>
-              <div class="hud-tele-item">
-                <div class="hud-tele-k">DEPTH / NPS</div>
-                <div class="hud-tele-v" id="hud-depth">24 ply · 910k</div>
-              </div>
-            </div>
-
-            <div class="style-selector">
-              <div class="style-label">MultiPV Tactical Style</div>
-              <div class="style-buttons">
-                <button class="style-btn active" data-style="best">Best Move</button>
-                <button class="style-btn" data-style="aggro">Aggro</button>
-                <button class="style-btn" data-style="trap">Trap</button>
-                <button class="style-btn" data-style="greedy">Greedy</button>
-                <button class="style-btn" data-style="chaos">Chaos</button>
-                <button class="style-btn" data-style="drawish">Drawish</button>
+              <div class="metric-pill">
+                <div class="metric-k">DEPTH / NPS</div>
+                <div class="metric-v" id="hud-depth">24 ply &bull; 910k</div>
               </div>
             </div>
 
-            <div class="hud-console" id="hud-console">
+            <!-- Playstyle Selector -->
+            <div class="style-box">
+              <div class="hud-label">MultiPV Tactical Style</div>
+              <div class="style-pills">
+                <button class="style-pill active" data-style="best">Best Move</button>
+                <button class="style-pill" data-style="aggro">Aggro</button>
+                <button class="style-pill" data-style="trap">Trap</button>
+                <button class="style-pill" data-style="greedy">Greedy</button>
+                <button class="style-pill" data-style="chaos">Chaos</button>
+                <button class="style-pill" data-style="drawish">Drawish</button>
+              </div>
+            </div>
+
+            <!-- Console Log -->
+            <div class="hud-terminal" id="hud-console">
               <div>[00:00:01] <span class="ok">socket</span> frame intercepted (0.1ms)</div>
               <div>[00:00:01] bestmove <span class="info">f3f7</span> &bull; Direct checkmate (Qxf7#)</div>
               <div>[00:00:01] <span class="ok">CDP</span> native drag executed in 1.1ms</div>
@@ -252,74 +256,78 @@
   </section>
 
   <!-- ========================================================================
-       WIRE VS DOM LATENCY BREAKDOWN
+       SECTION 2: LATENCY TELEMETRY (The Wire vs The DOM)
        ======================================================================== -->
-  <section class="comparison-section" id="latency">
+  <section class="section" id="latency">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker">Latency Benchmark</div>
-        <h2 class="section-title">The Wire vs. The DOM</h2>
-        <p class="section-desc">Why standard DOM scraping extensions fail at bullet and blitz time controls—and how capturing WebSocket frames changes the game.</p>
+        <div class="section-badge">* 02 // LATENCY TELEMETRY</div>
+        <h2 class="section-title">THE WIRE VS. THE DOM</h2>
+        <p class="section-desc">Why traditional DOM-scraping extensions lose at bullet speeds—and how capturing raw WebSocket frames eliminates 350 ms of lag.</p>
       </div>
 
-      <div class="latency-grid">
-        <!-- DOM Scraper -->
-        <div class="latency-card">
-          <div class="card-title-row">
-            <h3>Standard DOM Scrapers</h3>
-            <span class="latency-badge bad">~365 ms delay</span>
+      <div class="latency-plate">
+        <!-- DOM Scraper Card -->
+        <div class="compare-card">
+          <div>
+            <div class="compare-header">
+              <h3>Standard DOM Scrapers</h3>
+              <span class="status-badge red">365 ms lost</span>
+            </div>
+            <div class="step-list">
+              <div class="step-row">
+                <span>MutationObserver debounce</span>
+                <span class="num" style="color: var(--danger);">+70 ms</span>
+              </div>
+              <div class="step-row">
+                <span>Chessground animation settle wait</span>
+                <span class="num" style="color: var(--danger);">+220 ms</span>
+              </div>
+              <div class="step-row">
+                <span>DOM coordinate &amp; FEN derivation</span>
+                <span class="num" style="color: var(--danger);">+15 ms</span>
+              </div>
+              <div class="step-row">
+                <span>Service Worker cold-start waking</span>
+                <span class="num" style="color: var(--danger);">+60 ms</span>
+              </div>
+            </div>
           </div>
-          <div class="latency-steps">
-            <div class="latency-step">
-              <span>MutationObserver debounce</span>
-              <span class="mono" style="color: var(--danger);">+70 ms</span>
-            </div>
-            <div class="latency-step">
-              <span>Chessground animation settle wait</span>
-              <span class="mono" style="color: var(--danger);">+220 ms</span>
-            </div>
-            <div class="latency-step">
-              <span>DOM coordinate &amp; FEN derivation</span>
-              <span class="mono" style="color: var(--danger);">+15 ms</span>
-            </div>
-            <div class="latency-step">
-              <span>Service Worker cold-start waking</span>
-              <span class="mono" style="color: var(--danger);">+60 ms</span>
-            </div>
-            <div class="latency-step">
-              <span>Time lost before calculation begins</span>
-              <span class="mono" style="color: var(--danger); font-weight: 700;">365 ms lost</span>
-            </div>
+          <div class="compare-summary">
+            <span>Lag before calculation starts</span>
+            <span class="num" style="color: var(--danger); font-size: 18px;">~365 ms</span>
           </div>
         </div>
 
-        <!-- FrameZero -->
-        <div class="latency-card highlight">
-          <div class="card-title-row">
-            <h3>FrameZero Architecture</h3>
-            <span class="latency-badge good">&lt; 4 ms overhead</span>
+        <!-- FrameZero Card -->
+        <div class="compare-card winner">
+          <div>
+            <div class="compare-header">
+              <h3>FrameZero Architecture</h3>
+              <span class="status-badge white">&lt; 4 ms delta</span>
+            </div>
+            <div class="step-list">
+              <div class="step-row">
+                <span>Capture-phase WebSocket intercept</span>
+                <span class="num" style="color: var(--accent);">0 ms (on wire)</span>
+              </div>
+              <div class="step-row">
+                <span>Pre-animation instant FEN extraction</span>
+                <span class="num" style="color: var(--accent);">0 ms</span>
+              </div>
+              <div class="step-row">
+                <span>Persistent connection port IPC</span>
+                <span class="num" style="color: var(--accent);">1.2 ms</span>
+              </div>
+              <div class="step-row">
+                <span>Prewarmed offscreen Stockfish queue</span>
+                <span class="num" style="color: var(--accent);">2.0 ms</span>
+              </div>
+            </div>
           </div>
-          <div class="latency-steps">
-            <div class="latency-step">
-              <span>Capture-phase WebSocket intercept</span>
-              <span class="mono" style="color: var(--accent);">0 ms (on wire)</span>
-            </div>
-            <div class="latency-step">
-              <span>Pre-animation instant FEN extraction</span>
-              <span class="mono" style="color: var(--accent);">0 ms</span>
-            </div>
-            <div class="latency-step">
-              <span>Persistent connection port IPC</span>
-              <span class="mono" style="color: var(--accent);">1.2 ms</span>
-            </div>
-            <div class="latency-step">
-              <span>Prewarmed offscreen Stockfish queue</span>
-              <span class="mono" style="color: var(--accent);">2.0 ms</span>
-            </div>
-            <div class="latency-step">
-              <span>Time before engine starts searching</span>
-              <span class="mono" style="color: var(--accent); font-weight: 700;">3.2 ms</span>
-            </div>
+          <div class="compare-summary">
+            <span>Total overhead before engine begins</span>
+            <span class="num" style="color: var(--accent); font-size: 18px;">3.2 ms</span>
           </div>
         </div>
       </div>
@@ -327,57 +335,69 @@
   </section>
 
   <!-- ========================================================================
-       ENGINEERING PILLARS
+       SECTION 3: FOUR SYSTEMS PILLARS
        ======================================================================== -->
-  <section class="pillars-section" id="architecture">
+  <section class="section" id="architecture">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker">Systems Engineering</div>
-        <h2 class="section-title">Engineered without shortcuts.</h2>
-        <p class="section-desc">Four decoupled subsystems designed to run high-performance WebAssembly inside modern Manifest V3 constraints.</p>
+        <div class="section-badge">// 03 // SYSTEMS ENGINEERING</div>
+        <h2 class="section-title">FOUR CORE PILLARS</h2>
+        <p class="section-desc">Engineered from the protocol level up to run persistent WebAssembly inside Chrome Manifest V3.</p>
       </div>
 
       <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-num">01 / NETWORKING</div>
+        <div class="pillar-plate">
+          <div class="pillar-top">
+            <span class="pillar-tag">01 // NETWORKING</span>
+            <span class="pillar-badge">document_start</span>
+          </div>
           <h3>MAIN-World WebSocket Tap</h3>
-          <p>Injected at <code>document_start</code> before Lichess scripts initialize. Wraps native <code>WebSocket</code> to sniff round frames in capture phase without mutating data or sending frames.</p>
+          <p>Patches <code>window.WebSocket</code> before Lichess scripts exist. Sniffs round frames in the capture phase without sending packets or modifying game state.</p>
         </div>
 
-        <div class="pillar-card">
-          <div class="pillar-num">02 / COMPUTE</div>
+        <div class="pillar-plate">
+          <div class="pillar-top">
+            <span class="pillar-tag">02 // COMPUTE</span>
+            <span class="pillar-badge">512 MB TT Resident</span>
+          </div>
           <h3>Persistent Offscreen Host</h3>
-          <p>Chrome MV3 service workers terminate every 30 seconds. FrameZero hosts Stockfish inside a persistent Offscreen document, preserving a 512 MB transposition table across matches.</p>
+          <p>Overcomes MV3 service worker 30-second teardowns. Keeps Stockfish 19 WASM and its transposition table persistently warm across matches.</p>
         </div>
 
-        <div class="pillar-card">
-          <div class="pillar-num">03 / AUTOMATION</div>
+        <div class="pillar-plate">
+          <div class="pillar-top">
+            <span class="pillar-tag">03 // AUTOMATION</span>
+            <span class="pillar-badge">isTrusted: true</span>
+          </div>
           <h3>Chrome DevTools Protocol (CDP)</h3>
-          <p>Dispatches native pointer events through <code>chrome.debugger</code>. Injected at the browser compositor level with <code>isTrusted: true</code>, bypassing synthetic DOM input blockers.</p>
+          <p>Dispatches native browser-level pointer events via <code>chrome.debugger</code>. Executes single-gesture drag-and-drops that bypass synthetic DOM blockers.</p>
         </div>
 
-        <div class="pillar-card">
-          <div class="pillar-num">04 / ENDGAMES</div>
+        <div class="pillar-plate">
+          <div class="pillar-top">
+            <span class="pillar-tag">04 // ENDGAMES</span>
+            <span class="pillar-badge">DTM Optimal</span>
+          </div>
           <h3>Syzygy 7-Piece Tablebases</h3>
-          <p>Inside 7 pieces, chess is mathematically solved. FrameZero skips heuristic search and queries Syzygy tablebases for provably optimal conversion using Distance to Mate (DTM).</p>
+          <p>Positions with &le; 7 pieces skip heuristic search entirely. Queries public Syzygy servers for mathematically proven conversion using Distance to Mate.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========================================================================
-       STOCKFISH EMPIRICAL BENCHMARKS
+       SECTION 4: EMPIRICAL BENCHMARKS (Matrix Plate)
        ======================================================================== -->
-  <section class="benchmarks-section" id="benchmarks">
+  <section class="section" id="benchmarks">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker">Empirical Benchmarks</div>
-        <h2 class="section-title">Measured Search Depth &amp; Nodes/Sec</h2>
-        <p class="section-desc">Benchmarked across 5 complex tactical positions on a 2-thread WebAssembly budget.</p>
+        <div class="section-badge"># 04 // EMPIRICAL BENCHMARKS</div>
+        <h2 class="section-title">MEASURED DEPTH &amp; NPS</h2>
+        <p class="section-desc">Empirical benchmarks across 5 complex tactical positions on a 2-thread WebAssembly budget.</p>
       </div>
 
-      <div class="table-wrapper">
-        <table>
+      <div class="benchmarks-plate">
+        <table class="bench-table">
           <thead>
             <tr>
               <th>Think Budget</th>
@@ -393,28 +413,28 @@
               <td class="mono">13.0 ply &bull; 788k nps</td>
               <td class="mono">13.2 ply &bull; 1076k nps</td>
               <td class="mono">12.2 ply &bull; 414k nps</td>
-              <td class="highlight">SF18 / SF19 (Level)</td>
+              <td><span class="bench-pill">Level</span></td>
             </tr>
             <tr>
               <td class="mono">500 ms</td>
               <td class="mono">16.6 ply &bull; 883k nps</td>
               <td class="mono">17.2 ply &bull; 1088k nps</td>
               <td class="mono">14.6 ply &bull; 445k nps</td>
-              <td class="highlight">SF18 / SF19 (Level)</td>
+              <td><span class="bench-pill">Level</span></td>
             </tr>
             <tr>
               <td class="mono">2000 ms</td>
-              <td class="mono highlight">21.0 ply &bull; 878k nps</td>
+              <td class="mono" style="color: var(--accent); font-weight: 700;">21.0 ply &bull; 878k nps</td>
               <td class="mono">19.8 ply &bull; 949k nps</td>
               <td class="mono">18.2 ply &bull; 440k nps</td>
-              <td class="highlight">Stockfish 19 (+1.2 ply)</td>
+              <td><span class="bench-pill">SF19 (+1.2 ply)</span></td>
             </tr>
             <tr>
               <td class="mono">5000 ms</td>
-              <td class="mono highlight">24.6 ply &bull; 877k nps</td>
+              <td class="mono" style="color: var(--accent); font-weight: 700;">24.6 ply &bull; 877k nps</td>
               <td class="mono">21.6 ply &bull; 1056k nps</td>
               <td class="mono">22.2 ply &bull; 434k nps</td>
-              <td class="highlight">Stockfish 19 (+3.0 ply)</td>
+              <td><span class="bench-pill">SF19 (+3.0 ply)</span></td>
             </tr>
           </tbody>
         </table>
@@ -423,53 +443,61 @@
   </section>
 
   <!-- ========================================================================
-       QUICKSTART INSTALLATION
+       SECTION 5: INSTALLATION (Step Cards with Avatar-Ring Numbers)
        ======================================================================== -->
-  <section class="quickstart-section" id="install">
+  <section class="section" id="install">
     <div class="container">
       <div class="section-head">
-        <div class="section-kicker">Deployment</div>
-        <h2 class="section-title">Install in 60 seconds</h2>
+        <div class="section-badge">&gt; 05 // DEPLOYMENT</div>
+        <h2 class="section-title">INSTALL IN 60 SECONDS</h2>
         <p class="section-desc">Runs unpackaged on any Chromium browser (Chrome, Brave, Edge, Arc, Opera).</p>
       </div>
 
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-badge">STEP 01</div>
-          <h3>Clone the Repository</h3>
-          <p>Get the latest release bundle directly from GitHub to your machine:</p>
-          <div class="code-box">
-            git clone https://github.com/Mackming/framezero.git
+      <div class="install-grid">
+        <div class="install-card">
+          <div class="step-indicator">
+            <div class="step-inner">01</div>
+          </div>
+          <h3>Clone Repository</h3>
+          <p>Get the release repository directly from GitHub to your machine:</p>
+          <div class="terminal-box">
+            <span>git clone https://github.com/Mackming/framezero.git</span>
           </div>
         </div>
 
-        <div class="step-card">
-          <div class="step-badge">STEP 02</div>
+        <div class="install-card">
+          <div class="step-indicator">
+            <div class="step-inner">02</div>
+          </div>
           <h3>Open Extensions Page</h3>
           <p>Navigate to <code>chrome://extensions</code> in your browser and toggle <strong>Developer mode</strong> in the top right.</p>
         </div>
 
-        <div class="step-card">
-          <div class="step-badge">STEP 03</div>
+        <div class="install-card">
+          <div class="step-indicator">
+            <div class="step-inner">03</div>
+          </div>
           <h3>Load Unpacked</h3>
-          <p>Click <strong>Load unpacked</strong> and select the <code>framezero</code> folder. Open any Lichess analysis board to activate.</p>
+          <p>Click <strong>Load unpacked</strong>, select the <code>framezero</code> folder, and open any Lichess board. Press <strong>Alt + B</strong> to toggle.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========================================================================
-       FOOTER
+       FOOTER (Unified Minimalist Clean Finish)
        ======================================================================== -->
   <footer>
-    <div class="container footer-content">
-      <div>
-        <strong>FrameZero</strong> &mdash; Distributed under the GNU General Public License v3.0 (GPL-3.0).
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <span class="brand-dot"></span>
+        <span style="font-family: var(--font-display); font-size: 15px;">FrameZero</span>
+        <span style="color: var(--muted); font-size: 13px; margin-left: 8px;">&mdash; GNU GPLv3 Licensed.</span>
       </div>
       <div class="footer-links">
         <a href="https://github.com/Mackming/framezero" target="_blank" rel="noopener">GitHub</a>
         <a href="https://github.com/Mackming/framezero/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
-        <a href="https://lichess.org/terms-of-service" target="_blank" rel="noopener">Lichess ToS</a>
+        <a href="https://lichess.org/terms-of-service" target="_blank" rel="noopener">Lichess Fair Play</a>
       </div>
     </div>
   </footer>
