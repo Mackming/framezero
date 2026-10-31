@@ -1,0 +1,36 @@
+{
+  "name": "framezero",
+  "version": "1.5.0",
+  "description": "FrameZero: High-performance Manifest V3 Chrome extension. WebSocket event interception -> WebAssembly Stockfish 19 NNUE / Syzygy Tablebases -> bestmove",
+  "scripts": {
+    "test": "node test/cpu-modes.test.js && node test/engines.test.js && node test/bench-positions.test.js && node test/socket-events.test.js && node test/tablebase.test.js && node test/fen-sources.test.js && node test/position-sync.test.js && node test/overlay.test.js && node test/promotion.test.js && node test/ui.test.js && node test/opening-book.test.js && node test/move-policy.test.js && node test/integration.test.js"
+  },
+  "keywords": [
+    "chess",
+    "stockfish",
+    "stockfish-19",
+    "webassembly",
+    "nnue",
+    "syzygy-tablebase",
+    "chrome-extension",
+    "manifest-v3",
+    "lichess"
+  ],
+  "author": "Mackming",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mackming/framezero.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mackming/framezero/issues"
+  },
+  "homepage": "https://github.com/Mackming/framezero#readme",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "dependencies": {
+    "chess.js": "^1.4.0"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

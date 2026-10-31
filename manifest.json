@@ -1,0 +1,81 @@
+{
+  "manifest_version": 3,
+  "name": "FrameZero",
+  "version": "1.5.0",
+  "description": "Reads Lichess moves straight off the round WebSocket, evaluates them with local WebAssembly Stockfish 19 NNUE & Syzygy Tablebases, and executes replies.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "offscreen",
+    "storage",
+    "alarms",
+    "debugger"
+  ],
+  "host_permissions": [
+    "*://*.lichess.org/*",
+    "https://tablebase.lichess.ovh/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "FrameZero"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.lichess.org/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.lichess.org/*"
+      ],
+      "js": [
+        "page-bridge.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; worker-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "lib/chess.js",
+        "lib/fen-sources.js",
+        "lib/position-sync.js",
+        "lib/board-geometry.js",
+        "lib/overlay.js",
+        "lib/ui.js",
+        "lib/opening-book.js",
+        "lib/move-policy.js",
+        "lib/socket-events.js",
+        "lib/cpu-modes.js",
+        "lib/promotion.js",
+        "lib/engines.js",
+        "lib/bench-positions.js"
+      ],
+      "matches": [
+        "*://*.lichess.org/*"
+      ]
+    }
+  ],
+  "minimum_chrome_version": "116",
+  "cross_origin_embedder_policy": {
+    "value": "require-corp"
+  },
+  "cross_origin_opener_policy": {
+    "value": "same-origin"
+  }
+}

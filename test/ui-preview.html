@@ -1,0 +1,43 @@
+<!doctype html>
+<!--
+  Dev-only preview of the control panel with sample readouts, so a layout
+  change can be eyeballed without loading the extension into Lichess.
+  Serve the repo root over HTTP (ES modules do not load from file://), e.g.
+    python -m http.server 8765
+  then open http://localhost:8765/test/ui-preview.html
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Panel Preview</title>
+  <style>body { margin: 0; min-height: 100vh; background: #262421; }</style>
+</head>
+<body>
+<script type="module">
+  import { BotUI } from '../lib/ui.js';
+  import { MODES } from '../lib/move-policy.js';
+  import { CPU_MODES } from '../lib/cpu-modes.js';
+  import { ENGINES } from '../lib/engines.js';
+
+  const ui = new BotUI({
+    initialMoveTimeMs: 300, initialDelay: 0, initialInstant: true, initialArrows: true,
+    initialAutoPlay: true, initialPlayingAs: 'auto', initialMode: 'best',
+    modes: MODES, cpuModes: CPU_MODES, initialCpuMode: 'balanced',
+    engines: ENGINES, initialEngine: ENGINES[0].id
+  });
+  ui.setBotActive(true);
+  ui.setStatus("Opponent's move", 'wait');
+  ui.setDetectedColor('black');
+  ui.updateScore({ pawns: -0.85, mateIn: null }, 'black');
+  ui.updateBestMove('Nf6', 'depth 18 · your move');
+  ui.updateLatency(212, 6);
+  ui.updateOpening('Sicilian Defense: Najdorf Variation');
+  ui.updateEngine({ script: 'engine/sf_19_smallnet.js', label: 'Stockfish 19', threads: 4 });
+  ui.log('Bot started — moves will be played automatically', 'success');
+  ui.log('Lichess says so — playing black this game', 'info');
+  ui.log('Opponent played e4 — our move', 'success');
+  ui.log('Anti-draw — avoided repetition (-0.20 vs 0.00, ahead on the clock)', 'info');
+  globalThis.ui = ui;
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Auto-detect text files and normalize line endings
+* text=auto eol=lf
+
+# Explicit text files
+*.js text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+
+# Binary engine assets
+*.wasm binary
+*.nnue binary
