@@ -2058,6 +2058,31 @@ footer {
   color: #ffffff;
 }
 
+.footer-credit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer-credit a {
+  transition: color 0.2s;
+}
+
+.footer-credit a:hover {
+  color: #ffffff;
+}
+
+.footer-credit span a {
+  color: #ffffff;
+}
+
 /* ==========================================================================
    MOBILE SHEET MENU & OVERLAY
    ========================================================================== */
